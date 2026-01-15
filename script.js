@@ -40,3 +40,7 @@ window.addEventListener("scroll",()=>{
   const h=document.documentElement.scrollHeight-window.innerHeight;
   document.getElementById("progress-bar").style.width=(st/h)*100+"%";
 });
+
+document.getElementById("theme-toggle").onclick=()=>{
+  document.body.classList.toggle("dark");
+};

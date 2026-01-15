@@ -59,7 +59,6 @@ function typeSubtitle() {
 
 typeSubtitle();
 
-
 window.addEventListener("scroll",()=>{
   const st=document.documentElement.scrollTop;
   const h=document.documentElement.scrollHeight-window.innerHeight;

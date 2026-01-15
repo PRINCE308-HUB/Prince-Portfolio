@@ -23,3 +23,14 @@ document.addEventListener('mousemove',e=>{
   glow.style.left=e.clientX+'px';
   glow.style.top=e.clientY+'px';
 });
+
+const text="Interactive Web Designer & Creative Developer";
+let i=0;
+function type(){
+  if(i<text.length){
+    document.getElementById("typing-subtitle").innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(type,60);
+  }
+}
+type();

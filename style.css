@@ -1,3 +1,10 @@
+:root{
+  --orange:#fb923c;
+  --orange-light:#facc15;
+  --dark-bg:#020617;
+  --light-bg:#f8fafc;
+}
+
 /* Typing cursor */
 .typing::after{
   content:'|';
@@ -13,11 +20,11 @@
   from{transform:translateY(-100%);opacity:0;}
   to{transform:translateY(0);opacity:1;}
 }
+
 .animate-navbar{
-  animation:navSlide 0.8s ease-out forwards;
+  animation:navSlide .8s ease-out forwards;
 }
 
-/* Nav underline */
 .nav-anim{
   position:relative;
 }
@@ -25,15 +32,14 @@
   content:'';
   position:absolute;
   left:0;
-  bottom:0;
+  bottom:-4px;
   width:0%;
   height:2px;
-  background:#fb923c;
-  transition:0.3s;
+  background:var(--orange);
+  transition:.3s;
 }
-.nav-anim:hover::after{
-  width:100%;
-}
+.nav-anim:hover::after{width:100%;}
+
 
 /* Glass card hover */
 .glass-card{

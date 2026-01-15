@@ -1,6 +1,6 @@
 # 🖥️ Personal Portfolio Website – Prince Johnson
 
-Welcome to the source code for my personal website: **Hey, I'm Prince Johnson – Web Game Developer & Tech Enthusiast**
+Welcome to the source code for my personal website: **Hey, I'm Prince Johnson – Interactive Web Designer & Tech Enthusiast**
 
 🔗 **Live Site:** [https://PRINCE308-HUB.github.io/Prince-Portfolio](https://PRINCE308-HUB.github.io/Prince-Portfolio)
 
@@ -24,10 +24,11 @@ Welcome to the source code for my personal website: **Hey, I'm Prince Johnson �
 
 ## 🌐 Technologies Used
 
-- **HTML5** – Structure of the website
-- **CSS3** – Custom styling and layout
-- **JavaScript** – Interactivity, animations, and game logic
-- **Font Awesome** – Icon library for social links and features
+- **HTML5** – Structure of the website  
+- **CSS3** – Custom styling and layout  
+- **Tailwind CSS** – Utility-first styling for faster and modern UI design  
+- **JavaScript** – Interactivity, animations, and game logic  
+- **Font Awesome** – Icon library for social links and features 
 
 ---
 

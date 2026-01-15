@@ -24,16 +24,41 @@ document.addEventListener('mousemove',e=>{
   glow.style.top=e.clientY+'px';
 });
 
-const text="Interactive Web Designer & Creative Developer";
-let i=0;
-function type(){
-  if(i<text.length){
-    document.getElementById("typing-subtitle").innerHTML+=text.charAt(i);
-    i++;
-    setTimeout(type,60);
+const subtitles = [
+  "Interactive Web Designer",
+  "Creative Developer",
+  "Animated Web Enthusiast"
+];
+
+let subtitleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typingSpeed = 80;
+const deletingSpeed = 50;
+const delayBetween = 1200;
+
+function typeSubtitle() {
+  const element = document.getElementById("typing-subtitle");
+  const currentText = subtitles[subtitleIndex];
+
+  if (!isDeleting) {
+    element.textContent = currentText.substring(0, charIndex++);
+    if (charIndex > currentText.length) {
+      setTimeout(() => isDeleting = true, delayBetween);
+    }
+  } else {
+    element.textContent = currentText.substring(0, charIndex--);
+    if (charIndex === 0) {
+      isDeleting = false;
+      subtitleIndex = (subtitleIndex + 1) % subtitles.length;
+    }
   }
+
+  setTimeout(typeSubtitle, isDeleting ? deletingSpeed : typingSpeed);
 }
-type();
+
+typeSubtitle();
+
 
 window.addEventListener("scroll",()=>{
   const st=document.documentElement.scrollTop;
@@ -41,6 +66,3 @@ window.addEventListener("scroll",()=>{
   document.getElementById("progress-bar").style.width=(st/h)*100+"%";
 });
 
-document.getElementById("theme-toggle").onclick=()=>{
-  document.body.classList.toggle("dark");
-};

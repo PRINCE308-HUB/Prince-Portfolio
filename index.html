@@ -1,245 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prince Johnson - Web Game Developer & Tech Enthusiast</title>
-    <link rel="icon" href="favicon.png" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prince Johnson Portfolio</title>
+<link rel="icon" href="favicon.png" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" /> 
-
-    <style>
-        
-       .typing::after {
-            content: '|';
-            animation: blink 0.8s infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-    </style>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+<link rel="stylesheet" href="style.css" />
 </head>
+
 <body class="bg-gradient-to-b from-gray-900 to-black text-white font-sans min-h-screen">
 
-    <header class="bg-black py-4 fixed w-full z-50 shadow-lg">
-        <nav class="container mx-auto px-4 flex justify-between items-center relative">
-            <h1 class="text-xl font-bold text-orange-400 z-20 whitespace-nowrap">Prince Johnson</h1>
+<header class="bg-black py-4 fixed w-full z-50 shadow-lg animate-navbar">
+<nav class="container mx-auto px-4 flex justify-between items-center">
 
-            <button id="mobile-menu-button" class="md:hidden text-white text-2xl focus:outline-none z-20">
-                <i class="fas fa-bars"></i>
-            </button>
+<h1 class="text-xl font-bold text-orange-400">Prince Johnson</h1>
 
-            <ul id="main-nav" class="
-                hidden          /* Hidden by default on mobile */
-                md:flex         /* Display as flex on medium screens and up (desktop) */
-                md:space-x-6    /* Horizontal spacing between links on desktop */
-                md:ml-auto      /* PUSHES links to the right on desktop */
-                list-none       /* Removes default list item dots */
+<button id="mobile-menu-button" class="md:hidden text-white text-2xl">
+<i class="fas fa-bars"></i>
+</button>
 
-                /* Mobile dropdown specific styling - these will apply when 'hidden' is removed by JS on mobile */
-                flex flex-col space-y-4        /* Vertical stacking and spacing for mobile dropdown */
-                absolute top-full left-0 w-full    /* Positioning for mobile dropdown */
-                bg-black py-4 px-4 text-center shadow-lg z-10 /* Styling for mobile dropdown */
-            ">
-                <li><a href="#" onclick="showSection('home'); toggleMobileMenu()" class="block py-2 hover:text-orange-400 transition-colors duration-300">HOME</a></li>
-                <li><a href="#" onclick="showSection('about'); toggleMobileMenu()" class="block py-2 hover:text-orange-400 transition-colors duration-300">ABOUT</a></li>
-                <li><a href="#" onclick="showSection('games'); toggleMobileMenu()" class="block py-2 hover:text-orange-400 transition-colors duration-300">GAMES</a></li>
-                <li><a href="#" onclick="showSection('projects'); toggleMobileMenu()" class="block py-2 hover:text-orange-400 transition-colors duration-300">PROJECTS</a></li>
-                <li><a href="#" onclick="showSection('contact'); toggleMobileMenu()" class="block py-2 hover:text-orange-400 transition-colors duration-300">CONTACT</a></li>
-            </ul>
-        </nav>
-    </header>
+<ul id="main-nav"
+class="hidden md:flex md:space-x-6 md:ml-auto list-none
+flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto
+bg-black md:bg-transparent py-4 md:py-0 text-center shadow-lg md:shadow-none z-10">
 
-    <section id="home" class="pt-32 px-6 text-center min-h-screen flex flex-col justify-center items-center section-transition" data-aos="fade-up">
-        <h2 class="text-5xl md:text-6xl font-extrabold typing text-white mb-4">I'm Prince Johnson</h2>
-        <p class="mt-4 text-gray-300 text-lg md:text-xl">Game Developer | Cybersecurity Learner | Creative Coder</p>
-    </section>
+<li><a onclick="showSection('home')" class="block py-2 nav-anim hover:text-orange-400 cursor-pointer">HOME</a></li>
+<li><a onclick="showSection('about')" class="block py-2 nav-anim hover:text-orange-400 cursor-pointer">ABOUT</a></li>
+<li><a onclick="showSection('games')" class="block py-2 nav-anim hover:text-orange-400 cursor-pointer">GAMES</a></li>
+<li><a onclick="showSection('projects')" class="block py-2 nav-anim hover:text-orange-400 cursor-pointer">PROJECTS</a></li>
+<li><a onclick="showSection('contact')" class="block py-2 nav-anim hover:text-orange-400 cursor-pointer">CONTACT</a></li>
 
-    <section id="about" class="pt-24 px-6 text-center bg-gray-900 py-16 section-transition" data-aos="fade-up">
-        <h2 class="text-4xl font-bold mb-8 text-orange-400">About Me</h2>
-        <div class="flex flex-col md:flex-row items-center justify-center max-w-4xl mx-auto gap-8 mb-12">
-            <img src="personal-photo.jpg" alt="Prince Johnson" class="w-48 h-48 rounded-full object-cover mx-auto mb-4 border-4 border-orange-400 shadow-xl" />
-            <div class="md:text-left md:w-1/2">
-                <p class="text-gray-300 text-lg leading-relaxed">
-                    Hello! I'm Prince Johnson, a passionate web developer with a keen interest in crafting interactive games, exploring the depths of cybersecurity, and designing futuristic user interfaces. My journey in tech is driven by curiosity and a desire to build engaging digital experiences.
-                    <br><br>
-                    I thrive on challenges and constantly seek to expand my knowledge, whether it's optimizing game performance or delving into ethical hacking methodologies. My goal is to merge creativity with robust technical solutions to bring innovative ideas to life.
-                </p>
-                <div class="mt-6">
-                    <a href="https://github.com/PRINCE308-HUB" target="_blank" class="text-orange-400 underline hover:no-underline text-xl font-semibold transition-colors duration-300">
-                        <i class="fa-brands fa-github mr-2"></i>GitHub — PRINCE308-HUB
-                    </a>
-                </div>
-            </div>
-        </div>
+</ul>
+</nav>
+</header>
 
-        <h3 class="text-3xl font-bold mb-8 text-white mt-12">My Skills</h3>
-        <div class="max-w-4xl mx-auto space-y-4">
-            <div data-aos="fade-up">
-                <button class="accordion-header w-full bg-gray-700 text-left px-6 py-3 rounded-md font-semibold text-white flex items-center justify-between">
-                    <span><i class="fas fa-code mr-3"></i>Programming Languages</span>
-                    <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
-                </button>
-                <div class="accordion-content bg-gray-800 px-6 py-4 text-gray-300 rounded-b-md">
-                    <ul class="list-none space-y-2 text-gray-300 text-lg">
-                        <li><i class="fab fa-python mr-2"></i> Python</li>
-                        <li><i class="fas fa-wrench mr-2"></i> C</li>
-                        <li><i class="fas fa-database mr-2"></i> SQL</li>
-                    </ul>
-                </div>
-            </div>
+<section id="home" class="pt-32 px-6 text-center min-h-screen flex flex-col justify-center items-center">
+<h2 class="text-5xl md:text-6xl font-extrabold typing bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent mb-4">
+I'm Prince Johnson
+</h2>
+<p class="mt-4 text-gray-300 text-lg md:text-xl">
+Interactive Web Designer & Creative Developer
+</p>
+</section>
 
-            <div data-aos="fade-up">
-                <button class="accordion-header w-full bg-gray-700 text-left px-6 py-3 rounded-md font-semibold text-white flex items-center justify-between">
-                    <span><i class="fas fa-globe mr-3"></i>Web Development</span>
-                    <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
-                </button>
-                <div class="accordion-content bg-gray-800 px-6 py-4 text-gray-300 rounded-b-md">
-                    <p class="font-semibold mb-2">Languages</p>
-                    <ul class="list-none space-y-2 text-gray-300 text-lg">
-                        <li><i class="fab fa-html5 mr-2"></i> HTML</li>
-                        <li><i class="fab fa-js-square mr-2"></i> JavaScript</li>
-                        <li><i class="fab fa-css3-alt mr-2"></i> CSS</li>
-                    </ul>
-                    <p class="font-semibold mt-3 mb-2">Code Editors</p>
-                    <ul class="list-none space-y-2 text-gray-300 text-lg">
-                        <li><i class="fas fa-file-code mr-2"></i> VS Code</li>
-                        <li><i class="fas fa-file-alt mr-2"></i> Notepad</li>
-                    </ul>
-                    <p class="font-semibold mt-3 mb-2">UI/UX Tools</p>
-                    <ul class="list-none space-y-2 text-gray-300 text-lg">
-                        <li><i class="fas fa-palette mr-2"></i> Canva</li>
-                        <li><i class="fas fa-magic mr-2"></i> Adobe</li>
-                    </ul>
-                </div>
-            </div>
+<section id="about" class="hidden pt-24 px-6 text-center bg-gray-900 py-16">
+<h2 class="text-4xl font-bold mb-8 text-orange-400">About Me</h2>
+<p class="text-gray-300 max-w-3xl mx-auto">
+I build interactive, animated and futuristic web experiences.
+</p>
+</section>
 
-            <div data-aos="fade-up">
-                <button class="accordion-header w-full bg-gray-700 text-left px-6 py-3 rounded-md font-semibold text-white flex items-center justify-between">
-                    <span><i class="fas fa-object-group mr-3"></i>Frontend</span>
-                    <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
-                </button>
-                <div class="accordion-content bg-gray-800 px-6 py-4 text-gray-300 rounded-b-md">
-                    <ul class="list-none space-y-2 text-gray-300 text-lg">
-                        <li><i class="fas fa-wrench mr-2"></i> Tailwind CSS</li>
-                        <li><i class="fab fa-react mr-2"></i> React</li>
-                    </ul>
-                </div>
-            </div>
+<section id="games" class="hidden pt-24 px-6 text-center bg-black py-16">
+<h2 class="text-4xl font-bold mb-8 text-orange-400">My Games</h2>
+<div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+<div class="glass-card bg-gray-800 p-6 rounded-xl">
+<h3 class="text-2xl font-bold mb-4">Tic Tac Toe</h3>
+<p class="text-gray-300">Classic strategy game.</p>
+</div>
+<div class="glass-card bg-gray-800 p-6 rounded-xl">
+<h3 class="text-2xl font-bold mb-4">Memory Match</h3>
+<p class="text-gray-300">Brain training card game.</p>
+</div>
+</div>
+</section>
 
-            <div data-aos="fade-up">
-                <button class="accordion-header w-full bg-gray-700 text-left px-6 py-3 rounded-md font-semibold text-white flex items-center justify-between">
-                    <span><i class="fas fa-cloud-upload-alt mr-3"></i>Dev & Deployment / Backend</span>
-                    <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
-                </button>
-                <div class="accordion-content bg-gray-800 px-6 py-4 text-gray-300 rounded-b-md">
-                    <ul class="list-none space-y-2 text-gray-300 text-lg">
-                        <li><i class="fab fa-github mr-2"></i> GitHub</li>
-                        <li><i class="fab fa-node-js mr-2"></i> Node.js</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+<section id="projects" class="hidden pt-24 px-6 text-center bg-black min-h-screen flex flex-col justify-center items-center">
+<i class="fas fa-triangle-exclamation text-6xl text-orange-400 mb-6 animate-pulse"></i>
+<h2 class="text-5xl font-bold mb-4">Projects Coming Soon</h2>
+<p class="text-gray-300 max-w-xl">More interactive projects launching soon.</p>
+</section>
 
-        <hr class="w-3/4 border-gray-600 my-12 mx-auto" data-aos="fade-up" />
+<section id="contact" class="hidden pt-24 px-6 text-center bg-gray-900 py-20">
+<h2 class="text-4xl font-bold mb-10">CONTACTS</h2>
+<div class="space-y-6 text-lg">
+<p><i class="fas fa-envelope mr-2"></i> prince308j@gmail.com</p>
+<p><i class="fab fa-linkedin mr-2"></i> LinkedIn</p>
+<p><i class="fab fa-instagram mr-2"></i> @prince_308_j</p>
+<p><i class="fab fa-github mr-2"></i> GitHub</p>
+</div>
+</section>
 
-        <h2 class="text-3xl font-bold text-center mb-6 text-white" data-aos="fade-up">🎯 Goals</h2>
-        <ul class="max-w-3xl mx-auto list-disc list-inside text-gray-300 text-lg space-y-2" data-aos="fade-up">
-            <li>💻 Become a skilled ethical hacker and Cybersecurity analyst</li>
-            <li>🧠 Be a good programmer with strong problem-solving skills</li>
-            <li>🎮 Build and launch an online multiplayer game (FPS or RPG)</li>
-        </ul>
-    </section>
+<footer class="bg-blue-950 py-6 text-center text-gray-400 text-sm">
+&copy; 2025 Prince Johnson
+</footer>
 
-    <section id="games" class="pt-24 px-6 text-center bg-black py-16 section-transition" data-aos="fade-up">
-        <h2 class="text-4xl font-bold mb-8 text-orange-400">My Games</h2>
-        <p class="text-gray-300 text-lg mb-12">Here are some interactive web games I've built, with more coming soon!</p>
-
-        <div class="projects-grid">
-            <div class="project-card glass-card">
-                <h3 class="text-2xl font-bold mb-4">Tic Tac Toe</h3>
-                <div class="board" id="ticTacToeBoard">
-                    <div class="cell" data-cell></div>
-                    <div class="cell" data-cell></div>
-                    <div class="cell" data-cell></div>
-                    <div class="cell" data-cell></div>
-                    <div class="cell" data-cell></div>
-                    <div class="cell" data-cell></div>
-                    <div class="cell" data-cell></div>
-                    <div class="cell" data-cell></div>
-                    <div class="cell" data-cell></div>
-                </div>
-                <p id="ticMessage" class="message text-lg mt-4 font-semibold"></p>
-                <button id="ticTacToeReset" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300 mt-4">Reset Game</button>
-            </div>
-
-            <div class="project-card glass-card">
-                <h3 class="text-2xl font-bold mb-4">Memory Match</h3>
-                <div class="memory-game" id="memoryGame">
-                    </div>
-                <p id="memoryGameMessage" class="message text-lg mt-4 font-semibold"></p>
-                <button id="memoryGameReset" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300 mt-4">Reset Game</button>
-            </div>
-
-            <div class="project-card glass-card">
-                <img src="https://via.placeholder.com/300x200?text=Your+Project+Image" alt="Future Project" class="w-full h-auto rounded-md mb-4 object-cover">
-                <h3 class="text-2xl font-bold mb-2">Coming Soon!</h3>
-                <p class="text-gray-300">Exciting new projects are under development. Stay tuned for more interactive experiences and innovative solutions!</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="pt-24 px-6 text-center bg-black py-16 min-h-screen flex flex-col justify-center items-center section-transition" data-aos="fade-up">
-        <i class="fas fa-triangle-exclamation text-6xl text-orange-400 mb-8 animate-pulse"></i>
-        <h2 class="text-5xl md:text-6xl font-extrabold text-white mb-4">Projects Coming Soon</h2>
-        <p class="text-gray-300 text-lg md:text-xl max-w-xl mx-auto">
-            I'm currently working on exciting web apps and gaming tools.
-            <br>Stay tuned for portfolio updates and live project showcases!
-        </p>
-        <div class="mt-12">
-            <a href="#" onclick="showSection('home')" class="bg-gray-700 hover:bg-orange-500 text-white font-bold py-3 px-6 rounded-md transition-colors duration-300 flex items-center mx-auto w-max">
-                <i class="fas fa-arrow-left mr-2"></i> Back Home
-            </a>
-        </div>
-    </section>
-
-    <section id="contact" class="pt-24 px-6 text-center bg-gray-900 py-20 md:py-32 flex flex-col items-center justify-center section-transition" data-aos="fade-up">
-        <h2 class="text-4xl md:text-5xl font-bold mb-10 md:mb-16 text-white uppercase tracking-wider">CONTACTS</h2>
-
-        <div class="flex flex-col items-center space-y-8 md:space-y-10 text-white text-lg md:text-xl">
-            <a href="mailto:prince308j@gmail.com" class="contact-item hover:text-orange-400 transition-colors duration-300">
-                <i class="fas fa-envelope mr-3 text-2xl md:text-3xl"></i>
-                prince308j@gmail.com
-            </a>
-            <a href="https://www.linkedin.com/in/prince-johnson-48a061266/" target="_blank" class="contact-item hover:text-orange-400 transition-colors duration-300">
-                <i class="fab fa-linkedin mr-3 text-2xl md:text-3xl"></i>
-                LinkedIn
-            </a>
-            <a href="https://www.instagram.com/prince_308_j/" target="_blank" class="contact-item hover:text-orange-400 transition-colors duration-300">
-                <i class="fab fa-instagram mr-3 text-2xl md:text-3xl"></i>
-                @ prince_308_j
-            </a>
-            <a href="https://github.com/PRINCE308-HUB" target="_blank" class="contact-item hover:text-orange-400 transition-colors duration-300">
-                <i class="fab fa-github mr-3 text-2xl md:text-3xl"></i>
-                GitHub
-            </a>
-            <a href="https://discord.com/" target="_blank" class="contact-item hover:text-orange-400 transition-colors duration-300">
-                <i class="fab fa-discord mr-3 text-2xl md:text-3xl"></i>
-                KENZO愛
-            </a>
-        </div>
-    </section>
-
-    <footer class="bg-blue-950 py-6 text-center text-gray-400 text-sm">
-        &copy; <span id="current-year"></span> Prince Johnson.
-    </footer>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

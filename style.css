@@ -172,16 +172,20 @@
 }
 
 /* About section text readability on hover */
+.about-card:hover h1,
 .about-card:hover h2,
 .about-card:hover h3,
-.about-card:hover h4 {
-  color: #0f172a;   /* deep dark for strong contrast */
+.about-card:hover h4,
+.about-card:hover span,
+.about-card:hover strong {
+  color: #0f172a !important;
   font-weight: 800;
 }
 
 .about-card:hover p {
-  color: #1e293b;   /* soft dark gray for readability */
+  color: #1e293b !important;
   font-weight: 500;
 }
+
 
 

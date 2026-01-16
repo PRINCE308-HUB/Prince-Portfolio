@@ -17,9 +17,19 @@
 }
 
 /* Navbar slide */
-@keyframes navSlide{
-  from{transform:translateY(-100%);opacity:0;}
-  to{transform:translateY(0);opacity:1;}
+.nav-slide {
+  animation: navSlide 0.7s ease forwards;
+}
+
+@keyframes navSlide {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .animate-navbar{

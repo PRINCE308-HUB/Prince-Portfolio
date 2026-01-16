@@ -80,3 +80,18 @@
   transform:translateY(-10px) scale(1.03);
   box-shadow:0 20px 40px rgba(0,0,0,.6);
 }
+
+@keyframes slideUpFade {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.hero-title-animate {
+  animation: slideUpFade 1s ease-out forwards;
+}

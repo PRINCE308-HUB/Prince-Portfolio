@@ -1,4 +1,4 @@
-const sections=['home','about','games','projects','contact'];
+const sections=['home','games','contact'];
 
 function showSection(id){
   sections.forEach(sec=>{

@@ -198,13 +198,21 @@
 }
 
 header h1 {
-  transition: all 0.4s ease;
+  position: relative;
+  font-weight: 700;
+  background: linear-gradient(120deg, #fb923c, #facc15);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  background-position: left;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: white;
+  transition: background-size 0.5s ease, -webkit-text-fill-color 0.5s ease;
 }
 
 header h1:hover {
-  background: linear-gradient(120deg, #fb923c, #facc15);
-  -webkit-background-clip: text;
+  background-size: 100% 100%;
   -webkit-text-fill-color: transparent;
 }
+
 
 

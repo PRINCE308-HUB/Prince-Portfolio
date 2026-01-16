@@ -139,3 +139,12 @@
   color: #1f2933; 
   font-weight: 500;
 }
+/* About section hover fix */
+.glass-card.about-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.glass-card.about-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.6);
+}

@@ -80,6 +80,14 @@
   transform:translateY(-10px) scale(1.03);
   box-shadow:0 20px 40px rgba(0,0,0,.6);
 }
+.glass-card {
+  transition: all .3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,.6);
+}
 
 @keyframes slideUpFade {
   from {

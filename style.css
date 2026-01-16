@@ -172,7 +172,9 @@
 }
 
 /* About section text readability on hover */
-.about-card:hover h2{
+.about-card:hover h2,
+.about-card:hover h3,
+.about-card:hover h4 {
   color: #0f172a;   /* deep dark for strong contrast */
   font-weight: 800;
 }
@@ -181,4 +183,5 @@
   color: #1e293b;   /* soft dark gray for readability */
   font-weight: 500;
 }
+
 

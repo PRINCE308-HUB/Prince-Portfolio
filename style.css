@@ -41,16 +41,6 @@
 }
 .nav-anim:hover::after{width:100%;}
 
-
-/* Glass card hover */
-.glass-card{
-  transition:all 0.3s ease;
-}
-.glass-card:hover{
-  transform:translateY(-10px) scale(1.03);
-  box-shadow:0 20px 40px rgba(0,0,0,0.6);
-}
-
 #cursor-glow{
   position:fixed;
   width:20px;
@@ -72,21 +62,17 @@
   width:0%;
   z-index:9999;
 }
-
-.glass-card{
-  transition:all .3s ease;
-}
-.glass-card:hover{
-  transform:translateY(-10px) scale(1.03);
-  box-shadow:0 20px 40px rgba(0,0,0,.6);
-}
+/* Glass card hover */
 .glass-card {
-  transition: all .3s ease;
+  background: rgba(31, 41, 55, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .glass-card:hover {
   transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 20px 40px rgba(0,0,0,.6);
+  box-shadow: 0 25px 50px rgba(0,0,0,.6);
 }
 .glass-card:hover h4{
   text-shadow:0 0 10px rgba(251,146,60,0.9);

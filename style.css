@@ -130,3 +130,12 @@
   position: relative;
   z-index: 1;
 }
+.skill-card:hover h4 {
+  color: #111827; 
+  font-weight: 800;
+}
+
+.skill-card:hover p {
+  color: #1f2933; 
+  font-weight: 500;
+}

@@ -171,3 +171,14 @@
   z-index: 1;
 }
 
+/* About section text readability on hover */
+.about-card:hover h2{
+  color: #0f172a;   /* deep dark for strong contrast */
+  font-weight: 800;
+}
+
+.about-card:hover p {
+  color: #1e293b;   /* soft dark gray for readability */
+  font-weight: 500;
+}
+

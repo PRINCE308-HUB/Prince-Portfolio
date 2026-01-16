@@ -187,5 +187,14 @@
   font-weight: 500;
 }
 
+header h1 {
+  transition: all 0.4s ease;
+}
+
+header h1:hover {
+  background: linear-gradient(120deg, #fb923c, #facc15);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 

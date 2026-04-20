@@ -174,14 +174,18 @@
   backdrop-filter: blur(12px);
   border-radius: 14px;
   padding: 22px;
-  border: 1px solid rgba(251,146,60,0.3);
-  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: all 0.35s ease;
 }
 
 .about-box:hover {
   transform: translateY(-8px);
-  border-color: rgba(251,146,60,0.8);
-  box-shadow: 0 15px 40px rgba(251,146,60,0.25);
+
+  /* 👇 turns orange */
+  border-color: rgba(251,146,60,0.9);
+
+  /* glow */
+  box-shadow: 0 15px 40px rgba(251,146,60,0.3);
 }
 
 

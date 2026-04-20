@@ -76,6 +76,33 @@ function revealOnScroll() {
       el.classList.add("active");
     }
   });
+const infinityEl = document.getElementById("infinity-counter");
+
+let count = 1;
+let speed = 20; // lower = faster
+
+function animateInfinity() {
+  const interval = setInterval(() => {
+    count += Math.floor(Math.random() * 20) + 5; // random jump
+
+    if (count >= 999) {
+      clearInterval(interval);
+      infinityEl.textContent = "∞";
+    } else {
+      infinityEl.textContent = count;
+    }
+  }, speed);
+}
+
+// Run when section comes into view
+const observer = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) {
+    animateInfinity();
+    observer.disconnect();
+  }
+});
+
+observer.observe(infinityEl);
 }
 
 window.addEventListener("scroll", revealOnScroll);

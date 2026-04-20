@@ -24,33 +24,32 @@ Prince Johnson
 <ul class="hidden md:flex space-x-6 text-gray-300">
 <li><a href="#home" class="hover:text-orange-400">HOME</a></li>
 <li><a href="#about" class="hover:text-orange-400">ABOUT</a></li>
-<li><a onclick="openSection('games')" class="cursor-pointer"></li>
-<li><a onclick="openSection('contact')" class="cursor-pointer"></li>
+
+<li><a onclick="openSection('games')" class="cursor-pointer hover:text-orange-400">GAMES</a></li>
+<li><a onclick="openSection('contact')" class="cursor-pointer hover:text-orange-400">CONTACT</a></li>
 </ul>
 
 </nav>
 </header>
 
+<!-- MAIN CONTENT -->
+<div id="main-content">
+
 <!-- HERO -->
 <section id="home" class="pt-40 min-h-screen flex flex-col justify-center items-center text-center">
-
 <h2 class="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
 Welcome to My World
 </h2>
-
 <p id="typing-subtitle" class="mt-4 text-gray-300 text-lg"></p>
-
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="pt-32 px-6 max-w-[1400px] mx-auto">
-
 <h2 class="text-5xl font-bold mb-12 text-white text-left">About Me</h2>
 
 <div class="grid md:grid-cols-2 gap-12 text-left">
 
 <div class="space-y-6 text-gray-300 text-lg">
-
 <p>
 I'm a passionate <span class="text-orange-400 font-semibold">Computer Science student</span>
 and <span class="text-orange-400 font-semibold">Cybersecurity enthusiast</span>.
@@ -59,7 +58,6 @@ and <span class="text-orange-400 font-semibold">Cybersecurity enthusiast</span>.
 <p>
 I build interactive websites and explore creative tech ideas.
 </p>
-
 </div>
 
 <div class="grid grid-cols-2 gap-8">
@@ -86,12 +84,10 @@ I build interactive websites and explore creative tech ideas.
 
 </div>
 </div>
-
 </section>
 
 <!-- SKILLS -->
 <section id="skills" class="pt-32 px-6">
-
 <h2 class="text-4xl text-center mb-10">Skills</h2>
 
 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -117,35 +113,56 @@ I build interactive websites and explore creative tech ideas.
 </div>
 
 </div>
-
 </section>
 
 <!-- PROJECTS -->
 <section id="projects" class="pt-32 text-center">
-
 <h2 class="text-4xl mb-4 text-orange-400">Projects</h2>
+<p class="text-gray-400">🚧 Coming Soon...</p>
+</section>
 
-<p class="text-gray-400">
-🚧 Coming Soon...
-</p>
+</div>
+
+<!-- GAMES (FULL SCREEN) -->
+<section id="games" class="hidden fixed inset-0 bg-black z-50 pt-24 text-center overflow-y-auto">
+
+<button onclick="closeSection()" class="absolute top-6 left-6 text-white text-xl">
+⬅ Back
+</button>
+
+<h2 class="text-4xl text-orange-400 mb-6">My Games</h2>
+
+<div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+<div class="glass-card bg-gray-800 p-6 rounded-xl">
+<h3 class="text-2xl font-bold mb-4">Tic Tac Toe</h3>
+<p class="text-gray-300">Classic strategy game.</p>
+</div>
+
+<div class="glass-card bg-gray-800 p-6 rounded-xl">
+<h3 class="text-2xl font-bold mb-4">Memory Match</h3>
+<p class="text-gray-300">Brain training game.</p>
+</div>
+
+</div>
 
 </section>
 
-<!-- GAMES -->
-<section id="games" class="pt-32 text-center">
+<!-- CONTACT (FULL SCREEN) -->
+<section id="contact" class="hidden fixed inset-0 bg-black z-50 pt-24 text-center overflow-y-auto">
 
-<h2 class="text-4xl text-orange-400 mb-6">Games</h2>
+<button onclick="closeSection()" class="absolute top-6 left-6 text-white text-xl">
+⬅ Back
+</button>
 
-<p class="text-gray-400">Games section here</p>
+<h2 class="text-4xl mb-10">CONTACTS</h2>
 
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="pt-32 text-center pb-20">
-
-<h2 class="text-4xl mb-6">Contact</h2>
-
-<p>Email: prince308j@gmail.com</p>
+<div class="space-y-6 text-lg">
+<p>📧 prince308j@gmail.com</p>
+<p>🔗 LinkedIn</p>
+<p>📸 @prince_308_j</p>
+<p>🐙 GitHub</p>
+</div>
 
 </section>
 

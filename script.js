@@ -1,29 +1,43 @@
-const sections=['home','games','contact'];
+// ---------------- SECTION CONTROL ----------------
+const sections = ['home','about','skills','projects','contact'];
 
 function showSection(id){
   sections.forEach(sec=>{
-    document.getElementById(sec).classList.add('hidden');
+    const el = document.getElementById(sec);
+    if (el) el.classList.add('hidden');
   });
-  document.getElementById(id).classList.remove('hidden');
+
+  const target = document.getElementById(id);
+  if (target) target.classList.remove('hidden');
+
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-showSection('home');
+// Optional (keep if you want tab-style navigation)
+// showSection('home');
 
-// Mobile menu
-const menuBtn=document.getElementById('mobile-menu-button');
-const nav=document.getElementById('main-nav');
 
-menuBtn.onclick=()=>{
-  nav.classList.toggle('hidden');
-};
+// ---------------- MOBILE MENU ----------------
+const menuBtn = document.getElementById('mobile-menu-button');
+const nav = document.getElementById('main-nav');
 
-document.addEventListener('mousemove',e=>{
-  const glow=document.getElementById('cursor-glow');
-  glow.style.left=e.clientX+'px';
-  glow.style.top=e.clientY+'px';
+if(menuBtn){
+  menuBtn.onclick = () => {
+    nav.classList.toggle('hidden');
+  };
+}
+
+
+// ---------------- CURSOR GLOW ----------------
+document.addEventListener('mousemove', e=>{
+  const glow = document.getElementById('cursor-glow');
+  if (!glow) return;
+  glow.style.left = e.clientX + 'px';
+  glow.style.top = e.clientY + 'px';
 });
 
+
+// ---------------- TYPING SUBTITLE ----------------
 const subtitles = [
   "Interactive Web Designer",
   "Creative Developer",
@@ -33,18 +47,17 @@ const subtitles = [
 let subtitleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
-const typingSpeed = 80;
-const deletingSpeed = 50;
-const delayBetween = 1200;
 
 function typeSubtitle() {
   const element = document.getElementById("typing-subtitle");
+  if (!element) return;
+
   const currentText = subtitles[subtitleIndex];
 
   if (!isDeleting) {
     element.textContent = currentText.substring(0, charIndex++);
     if (charIndex > currentText.length) {
-      setTimeout(() => isDeleting = true, delayBetween);
+      setTimeout(() => isDeleting = true, 1200);
     }
   } else {
     element.textContent = currentText.substring(0, charIndex--);
@@ -54,17 +67,25 @@ function typeSubtitle() {
     }
   }
 
-  setTimeout(typeSubtitle, isDeleting ? deletingSpeed : typingSpeed);
+  setTimeout(typeSubtitle, isDeleting ? 50 : 80);
 }
 
 typeSubtitle();
 
-window.addEventListener("scroll",()=>{
-  const st=document.documentElement.scrollTop;
-  const h=document.documentElement.scrollHeight-window.innerHeight;
-  document.getElementById("progress-bar").style.width=(st/h)*100+"%";
+
+// ---------------- SCROLL PROGRESS BAR ----------------
+window.addEventListener("scroll", ()=>{
+  const bar = document.getElementById("progress-bar");
+  if (!bar) return;
+
+  const st = document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+
+  bar.style.width = (st/h)*100 + "%";
 });
 
+
+// ---------------- REVEAL ANIMATION ----------------
 const reveals = document.querySelectorAll(".reveal");
 
 function revealOnScroll() {
@@ -76,11 +97,13 @@ function revealOnScroll() {
       el.classList.add("active");
     }
   });
-const infinityEl = document.getElementById("infinity-counter");
+}
 
-let count = 1;
-let speed = 20; // lower = faster
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
 
+
+// ---------------- INFINITY COUNTER ----------------
 window.addEventListener("DOMContentLoaded", () => {
   const infinityEl = document.getElementById("infinity-counter");
   if (!infinityEl) return;
@@ -90,7 +113,6 @@ window.addEventListener("DOMContentLoaded", () => {
   function startCounting() {
     const interval = setInterval(() => {
 
-      // exponential growth feel 🔥
       count = Math.floor(count * 1.4 + Math.random() * 1000);
 
       if (count >= 99999999) {

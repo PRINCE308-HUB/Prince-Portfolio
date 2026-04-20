@@ -147,29 +147,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
   observer.observe(infinityEl);
 });
-const filterBtns = document.querySelectorAll(".filter-btn");
-const cards = document.querySelectorAll(".tool-card");
+/* hidden cards */
+.tool-card.hide {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+  position: absolute;
+}
 
-filterBtns.forEach(btn => {
-  btn.addEventListener("click", () => {
-
-    // active button
-    filterBtns.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-
-    const filter = btn.getAttribute("data-filter");
-
-    cards.forEach(card => {
-      const category = card.getAttribute("data-category");
-
-      if (filter === "all" || category === filter) {
-        card.classList.remove("hide");
-        card.classList.add("show");
-      } else {
-        card.classList.add("hide");
-        card.classList.remove("show");
-      }
-    });
-
-  });
-});
+/* visible cards */
+.tool-card.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  position: relative;
+}

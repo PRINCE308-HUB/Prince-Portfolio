@@ -12,7 +12,23 @@ function showSection(id){
 
   window.scrollTo({top:0,behavior:'smooth'});
 }
+function openSection(id) {
+  document.getElementById("main-content").style.display = "none";
 
+  document.getElementById("games").classList.add("hidden");
+  document.getElementById("contact").classList.add("hidden");
+
+  document.getElementById(id).classList.remove("hidden");
+}
+
+function closeSection() {
+  document.getElementById("main-content").style.display = "block";
+
+  document.getElementById("games").classList.add("hidden");
+  document.getElementById("contact").classList.add("hidden");
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
 // Optional (keep if you want tab-style navigation)
 // showSection('home');
 

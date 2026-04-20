@@ -147,18 +147,32 @@ window.addEventListener("DOMContentLoaded", () => {
 
   observer.observe(infinityEl);
 });
-/* hidden cards */
-.tool-card.hide {
-  opacity: 0;
-  transform: scale(0.8);
-  pointer-events: none;
-  position: absolute;
-}
+//--------------------------FILTER-------------------------------
+document.addEventListener("DOMContentLoaded", () => {
 
-/* visible cards */
-.tool-card.show {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: auto;
-  position: relative;
-}
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const cards = document.querySelectorAll(".tool-card");
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+
+      // active button UI
+      filterBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const filter = btn.dataset.filter;
+
+      cards.forEach(card => {
+        const category = card.dataset.category;
+
+        if (filter === "all" || category === filter) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+    });
+  });
+
+});

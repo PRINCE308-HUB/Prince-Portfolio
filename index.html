@@ -4,195 +4,157 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Prince Johnson Portfolio</title>
-<link rel="icon" href="favicon.png" />
 
+<link rel="icon" href="favicon.png" />
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
 <link rel="stylesheet" href="style.css" />
+
 </head>
 
-<body class="bg-gradient-to-b from-gray-900 to-black text-white font-sans min-h-screen">
-<div id="progress-bar"></div>
-<div id="cursor-glow"></div>
+<body class="bg-gradient-to-b from-gray-900 to-black text-white font-sans">
+
+<!-- NAVBAR -->
 <header class="fixed top-0 w-full z-50 bg-gray-900/80 backdrop-blur shadow-md nav-slide">
 <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-<h1 class="text-xl font-bold text-white" data-text="Prince Johnson">Prince Johnson</h1>
-<button id="mobile-menu-button" class="md:hidden text-white text-2xl ml-auto">
-<i class="fas fa-bars"></i>
-</button>
-<!-- Desktop Menu -->
-<ul id="main-nav"
-class="hidden md:flex md:space-x-6 md:ml-auto list-none
-flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto
-bg-black md:bg-transparent py-4 md:py-0 text-center shadow-lg md:shadow-none z-10">
 
-<li><a onclick="showSection('home')" class="block py-2 nav-anim hover:text-orange-400 cursor-pointer">HOME</a></li>
-<li><a onclick="showSection('games')" class="block py-2 nav-anim hover:text-orange-400 cursor-pointer">GAMES</a></li>
-<li><a onclick="showSection('contact')" class="block py-2 nav-anim hover:text-orange-400 cursor-pointer">CONTACT</a></li>
+<h1 class="text-xl font-bold text-white" data-text="Prince Johnson">
+Prince Johnson
+</h1>
 
+<ul class="hidden md:flex space-x-6 text-gray-300">
+<li><a href="#home" class="hover:text-orange-400">HOME</a></li>
+<li><a href="#about" class="hover:text-orange-400">ABOUT</a></li>
+<li><a href="#games" class="hover:text-orange-400">GAMES</a></li>
+<li><a href="#contact" class="hover:text-orange-400">CONTACT</a></li>
 </ul>
+
 </nav>
 </header>
-<section id="home" class="pt-40 px-6 text-center min-h-screen flex flex-col justify-center items-center">
-<h2 class="text-5xl md:text-6xl font-extrabold typing hero-title-animate bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent mb-4">
+
+<!-- HERO -->
+<section id="home" class="pt-40 min-h-screen flex flex-col justify-center items-center text-center">
+
+<h2 class="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
 Welcome to My World
 </h2>
-<p id="typing-subtitle" class="mt-4 text-gray-300 text-lg md:text-xl typing-cursor"></p>
-<!-- About Me -->
-<section id="about" class="pt-32 px-6 max-w-7xl mx-auto">
 
-  <h2 class="text-5xl font-bold mb-12 text-white text-left">About Me</h2>
-
-  <div class="grid md:grid-cols-2 gap-12 items-start text-left">
-
-    <!-- LEFT TEXT -->
-    <div class="space-y-6 text-gray-300 text-lg leading-relaxed">
-
-      <p>
-        I'm a passionate <span class="text-orange-400 font-semibold">Computer Science student</span> and 
-        <span class="text-orange-400 font-semibold">Cybersecurity enthusiast</span>. 
-        I love building interactive web experiences and exploring new technologies.
-      </p>
-
-      <p>
-        I'm a problem solver and creative thinker. When I'm not coding, I explore 
-        gaming projects and innovative tech ideas.
-      </p>
-
-    </div>
-
-    <!-- RIGHT CARDS -->
-    <div class="grid grid-cols-2 gap-6">
-
-      <div class="about-box">
-        <h3 class="text-3xl text-orange-400 font-bold">15+</h3>
-        <p class="text-gray-400">Tools Mastered</p>
-      </div>
-
-     <div class="about-box text-left">
-        <h3 id="infinity-counter" class="text-3xl text-orange-400 font-bold">1</h3>
-        <p class="text-gray-400">Curiosity</p>
-      </div>
-
-      <div class="about-box text-left">
-        <h3 class="text-3xl text-orange-400 font-bold">CS</h3>
-        <p class="text-gray-400">Degree in Progress</p>
-      </div>
-
-      <div class="about-box text-left">
-        <h3 class="text-3xl text-orange-400 font-bold">24/7</h3>
-        <p class="text-gray-400">Learning Mode</p>
-      </div>
-
-    </div>
-
-  </div>
+<p id="typing-subtitle" class="mt-4 text-gray-300 text-lg"></p>
 
 </section>
 
-<!-- Skills -->
-<div class="mt-32 reveal">
-  <h3 class="text-3xl font-bold text-white mb-10 text-center">Skills</h3>
+<!-- ABOUT -->
+<section id="about" class="pt-32 px-6 max-w-[1400px] mx-auto">
 
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+<h2 class="text-5xl font-bold mb-12 text-white text-left">About Me</h2>
 
-    <div class="glass-card skill-card p-8 rounded-xl text-center">
-      <h4 class="text-orange-400 font-bold">🐍 Python</h4>
-      <p class="text-gray-400 text-sm mt-2">Automation, scripting, problem solving</p>
-    </div>
+<div class="grid md:grid-cols-2 gap-12 text-left">
 
-    <div class="glass-card skill-card p-8 rounded-xl text-center">
-      <h4 class="text-orange-400 font-bold">🖥️ Bash</h4>
-      <p class="text-gray-400 text-sm mt-2">Linux scripting & commands</p>
-    </div>
+<div class="space-y-6 text-gray-300 text-lg">
 
-    <div class="glass-card skill-card p-8 rounded-xl text-center">
-      <h4 class="text-orange-400 font-bold">🔧 C</h4>
-      <p class="text-gray-400 text-sm mt-2">Core programming & logic</p>
-    </div>
+<p>
+I'm a passionate <span class="text-orange-400 font-semibold">Computer Science student</span>
+and <span class="text-orange-400 font-semibold">Cybersecurity enthusiast</span>.
+</p>
 
-    <div class="glass-card skill-card p-8 rounded-xl text-center">
-      <h4 class="text-orange-400 font-bold">📄 HTML</h4>
-      <p class="text-gray-400 text-sm mt-2">Web structure</p>
-    </div>
+<p>
+I build interactive websites and explore creative tech ideas.
+</p>
 
-    <div class="glass-card skill-card p-8 rounded-xl text-center">
-      <h4 class="text-orange-400 font-bold">🎨 CSS</h4>
-      <p class="text-gray-400 text-sm mt-2">Layouts & animations</p>
-    </div>
-
-    <div class="glass-card skill-card p-8 rounded-xl text-center">
-      <h4 class="text-orange-400 font-bold">🧠 JavaScript</h4>
-      <p class="text-gray-400 text-sm mt-2">Interactivity & logic</p>
-    </div>
-
-    <div class="glass-card skill-card p-8 rounded-xl text-center">
-      <h4 class="text-orange-400 font-bold">⚙️ Node.js</h4>
-      <p class="text-gray-400 text-sm mt-2">Backend basics</p>
-    </div>
-
-    <div class="glass-card skill-card p-8 rounded-xl text-center">
-      <h4 class="text-orange-400 font-bold">⚛️ React</h4>
-      <p class="text-gray-400 text-sm mt-2">Frontend components</p>
-    </div>
-
-    <div class="glass-card skill-card p-8 rounded-xl text-center">
-      <h4 class="text-orange-400 font-bold">🐙 GitHub</h4>
-      <p class="text-gray-400 text-sm mt-2">Version control</p>
-    </div>
-
-    <div class="glass-card skill-card p-8 rounded-xl text-center">
-      <h4 class="text-orange-400 font-bold">🌬️ Tailwind</h4>
-      <p class="text-gray-400 text-sm mt-2">Utility-first UI design</p>
-    </div>
-
-  </div>
-  
 </div>
-<!-- Projects -->
-<div class="mt-32 max-w-4xl mx-auto text-center glass-card bg-gray-800/50 p-8 rounded-xl reveal">
 
-  <h3 class="text-3xl font-bold text-orange-400 mb-4">Projects</h3>
+<div class="grid grid-cols-2 gap-8">
 
-  <p class="text-gray-300 text-lg">
-    🚧 Projects Coming Soon...
-  </p>
-
-  <p class="text-gray-400 mt-2">
-    I'm currently working on exciting interactive web projects and games.
-    This section will be updated very soon.
-  </p>
+<div class="about-box">
+<h3 class="text-3xl text-orange-400 font-bold">15+</h3>
+<p class="text-gray-400">Tools Mastered</p>
 </div>
+
+<div class="about-box">
+<h3 id="infinity-counter" class="text-3xl text-orange-400 font-bold">1</h3>
+<p class="text-gray-400">Curiosity</p>
+</div>
+
+<div class="about-box">
+<h3 class="text-3xl text-orange-400 font-bold">CS</h3>
+<p class="text-gray-400">Degree</p>
+</div>
+
+<div class="about-box">
+<h3 class="text-3xl text-orange-400 font-bold">24/7</h3>
+<p class="text-gray-400">Learning</p>
+</div>
+
+</div>
+</div>
+
 </section>
 
-<section id="games" class="hidden pt-24 px-6 text-center bg-black py-16">
-<h2 class="text-4xl font-bold mb-8 text-orange-400">My Games</h2>
-<div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-<div class="glass-card bg-gray-800 p-6 rounded-xl">
-<h3 class="text-2xl font-bold mb-4">Tic Tac Toe</h3>
-<p class="text-gray-300">Classic strategy game.</p>
+<!-- SKILLS -->
+<section id="skills" class="pt-32 px-6">
+
+<h2 class="text-4xl text-center mb-10">Skills</h2>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+
+<div class="glass-card skill-card p-8 rounded-xl text-center">
+<h4 class="text-orange-400 font-bold">🐍 Python</h4>
+<p class="text-gray-400 text-sm">Automation</p>
 </div>
-<div class="glass-card bg-gray-800 p-6 rounded-xl">
-<h3 class="text-2xl font-bold mb-4">Memory Match</h3>
-<p class="text-gray-300">Brain training card game.</p>
+
+<div class="glass-card skill-card p-8 rounded-xl text-center">
+<h4 class="text-orange-400 font-bold">🧠 JavaScript</h4>
+<p class="text-gray-400 text-sm">Logic</p>
 </div>
+
+<div class="glass-card skill-card p-8 rounded-xl text-center">
+<h4 class="text-orange-400 font-bold">🎨 CSS</h4>
+<p class="text-gray-400 text-sm">Design</p>
 </div>
+
+<div class="glass-card skill-card p-8 rounded-xl text-center">
+<h4 class="text-orange-400 font-bold">⚛️ React</h4>
+<p class="text-gray-400 text-sm">Frontend</p>
+</div>
+
+</div>
+
 </section>
 
-<section id="contact" class="hidden pt-24 px-6 text-center bg-gray-900 py-20">
-<h2 class="text-4xl font-bold mb-10">CONTACTS</h2>
-<div class="space-y-6 text-lg">
-<p><i class="fas fa-envelope mr-2"></i> prince308j@gmail.com</p>
-<p><i class="fab fa-linkedin mr-2"></i> LinkedIn</p>
-<p><i class="fab fa-instagram mr-2"></i> @prince_308_j</p>
-<p><i class="fab fa-github mr-2"></i> GitHub</p>
-</div>
+<!-- PROJECTS -->
+<section id="projects" class="pt-32 text-center">
+
+<h2 class="text-4xl mb-4 text-orange-400">Projects</h2>
+
+<p class="text-gray-400">
+🚧 Coming Soon...
+</p>
+
 </section>
 
-<footer class="w-full text-center py-6 text-gray-400 text-sm border-t border-gray-800 mt-20">
-  Designed by <span class="text-white font-semibold hover:text-orange-400 transition">Prince Johnson 😎</span>
+<!-- GAMES -->
+<section id="games" class="pt-32 text-center">
+
+<h2 class="text-4xl text-orange-400 mb-6">Games</h2>
+
+<p class="text-gray-400">Games section here</p>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="pt-32 text-center pb-20">
+
+<h2 class="text-4xl mb-6">Contact</h2>
+
+<p>Email: prince308j@gmail.com</p>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center py-6 text-gray-400 border-t border-gray-800">
+Designed by <span class="text-white hover:text-orange-400">Prince Johnson</span>
 </footer>
 
 <script src="script.js"></script>
+
 </body>
 </html>

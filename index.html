@@ -100,12 +100,12 @@ bg-clip-text text-transparent">
     </h2>
 
     <!-- FILTER BUTTONS -->
-    <div class="flex flex-wrap gap-4 mb-10">
+    <div class="flex gap-6 mb-10">
 
-      <button class="filter-btn active">All</button>
-      <button class="filter-btn">Web Dev</button>
-      <button class="filter-btn">Security</button>
-      <button class="filter-btn">Languages</button>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Web Dev</button>
+      <button class="filter-btn" data-filter="security">Security</button>
+      <button class="filter-btn" data-filter="language">Languages</button>
 
     </div>
 
@@ -113,62 +113,57 @@ bg-clip-text text-transparent">
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 
       <!-- CARD -->
-      <div class="tool-card">
+      <div class="tool-card" data-category="language">
         <h4>🐍 Python</h4>
         <p>Scripting, automation, and problem solving</p>
       </div>
 
-      <div class="tool-card">
+      <div class="tool-card" data-category="web">
         <h4>🧠 JavaScript</h4>
         <p>Interactive UI and frontend logic</p>
       </div>
 
-      <div class="tool-card">
+      <div class="tool-card" data-category="web">
         <h4>🌐 HTML</h4>
         <p>Semantic structure for web</p>
       </div>
 
-      <div class="tool-card">
+      <div class="tool-card" data-category="web">
         <h4>🎨 CSS</h4>
         <p>Modern layouts and styling</p>
       </div>
 
-      <div class="tool-card">
+      <div class="tool-card" data-category="web">
         <h4>⚛️ React</h4>
         <p>Component-based UI development</p>
       </div>
 
-      <div class="tool-card">
+      <div class="tool-card" data-category="web">
         <h4>🟢 Node.js</h4>
         <p>Backend JavaScript runtime</p>
       </div>
 
-      <div class="tool-card">
+      <div class="tool-card" data-category="web">
         <h4>🌪 Tailwind</h4>
         <p>Utility-first CSS framework</p>
       </div>
 
-      <div class="tool-card">
+      <div class="tool-card" data-category="security">
         <h4>🐧 Linux</h4>
         <p>System usage & command line</p>
       </div>
 
-      <div class="tool-card">
+      <div class="tool-card" data-category="security">
         <h4>🛡 Kali Linux</h4>
         <p>Security testing tools</p>
       </div>
-
-      <div class="tool-card">
-        <h4>🔍 Nmap</h4>
-        <p>Network scanning & analysis</p>
-      </div>
-
-      <div class="tool-card">
+      
+      <div class="tool-card" data-category="web">
         <h4>💾 MySQL</h4>
         <p>Database management</p>
       </div>
 
-      <div class="tool-card">
+      <div class="tool-card" data-category="language">
         <h4>⚙️ Bash</h4>
         <p>Shell scripting & automation</p>
       </div>

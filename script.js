@@ -81,29 +81,35 @@ const infinityEl = document.getElementById("infinity-counter");
 let count = 1;
 let speed = 20; // lower = faster
 
-function animateInfinity() {
-  const interval = setInterval(() => {
-    count += Math.floor(Math.random() * 20) + 5; // random jump
+window.addEventListener("DOMContentLoaded", () => {
+  const infinityEl = document.getElementById("infinity-counter");
+  if (!infinityEl) return;
 
-    if (count >= 999) {
-      clearInterval(interval);
-      infinityEl.textContent = "∞";
-    } else {
-      infinityEl.textContent = count;
-    }
-  }, speed);
-}
+  let count = 1;
 
-// Run when section comes into view
-const observer = new IntersectionObserver(entries => {
-  if (entries[0].isIntersecting) {
-    animateInfinity();
-    observer.disconnect();
+  function startCounting() {
+    const interval = setInterval(() => {
+
+      // exponential growth feel 🔥
+      count = Math.floor(count * 1.4 + Math.random() * 1000);
+
+      if (count >= 99999999) {
+        clearInterval(interval);
+        infinityEl.textContent = "∞";
+        infinityEl.classList.add("infinity-final");
+      } else {
+        infinityEl.textContent = count.toLocaleString();
+      }
+
+    }, 40);
   }
+
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      startCounting();
+      observer.disconnect();
+    }
+  });
+
+  observer.observe(infinityEl);
 });
-
-observer.observe(infinityEl);
-}
-
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();

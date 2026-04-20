@@ -14,8 +14,6 @@ function showSection(id){
 }
 function openSection(id) {
   document.getElementById("main-content").style.display = "none";
-
-  document.getElementById("games").classList.add("hidden");
   document.getElementById("contact").classList.add("hidden");
 
   document.getElementById(id).classList.remove("hidden");
@@ -23,8 +21,6 @@ function openSection(id) {
 
 function closeSection() {
   document.getElementById("main-content").style.display = "block";
-
-  document.getElementById("games").classList.add("hidden");
   document.getElementById("contact").classList.add("hidden");
 
   window.scrollTo({ top: 0, behavior: "smooth" });

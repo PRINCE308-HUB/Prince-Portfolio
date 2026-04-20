@@ -34,7 +34,6 @@ Welcome to the source code for my personal website: **Hey, I'm Prince Johnson �
 
 ## 🎯 Key Features
 
-- 🎮 **Interactive Web Games** – Play Tic Tac Toe and Memory Match directly on the site.
 - 💡 **Smooth Scroll Transitions** – Elegant scrolling between sections for enhanced user experience.
 - 🎨 **Modern & Minimal UI** – Clean, dark-themed interface with subtle glassmorphism effects.
 - 🧭 **Sticky Navbar** – Always accessible navigation with hover animations.
@@ -44,7 +43,6 @@ Welcome to the source code for my personal website: **Hey, I'm Prince Johnson �
 
 ## ✨ Future Additions
 
-- 🕹️ Expand game library with more web-based interactive experiences.
 - 📂 Enhance project showcase with more detailed views and filters.
 - 🌗 Implement a dark/light theme toggle.
 

@@ -15,8 +15,7 @@
 
 <!-- NAVBAR -->
 <header class="fixed top-0 w-full z-50 bg-gray-900/80 backdrop-blur shadow-md nav-slide">
-<nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-
+<nav class="max-w-7xl mx-auto px-6 flex justify-between items-center">
 <h1 class="text-xl font-bold text-white" data-text="Prince Johnson">
 Prince Johnson
 </h1>
@@ -44,8 +43,9 @@ Welcome to My World
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="pt-32 px-6 max-w-[1400px] mx-auto">
-<h2 class="text-5xl font-bold mb-12 text-white text-left">About Me</h2>
+<section id="about" class="pt-32">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-5xl font-bold mb-10 text-white">About Me</h2>
 
 <div class="grid md:grid-cols-2 gap-12 text-left">
 
@@ -84,11 +84,13 @@ I build interactive websites and explore creative tech ideas.
 
 </div>
 </div>
+</div>  
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="pt-32 px-6">
-<h2 class="text-4xl text-center mb-10">Skills</h2>
+<section id="skills" class="pt-32">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-4xl mb-10">Skills</h2>
 
 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
 
@@ -113,41 +115,21 @@ I build interactive websites and explore creative tech ideas.
 </div>
 
 </div>
+</div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="pt-32 text-center">
-<h2 class="text-4xl mb-4 text-orange-400">Projects</h2>
-<p class="text-gray-400">🚧 Coming Soon...</p>
+<section id="projects" class="pt-32">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h2 class="text-4xl mb-10 text-orange-400">
+      Projects
+    </h2>
+
+    <!-- your projects -->
+
+  </div>
 </section>
-
-</div>
-
-<!-- GAMES (FULL SCREEN) -->
-<section id="games" class="hidden fixed inset-0 bg-black z-50 pt-24 text-center overflow-y-auto">
-
-<button onclick="closeSection()" class="absolute top-6 left-6 text-white text-xl">
-⬅ Back
-</button>
-
-<h2 class="text-4xl text-orange-400 mb-6">My Games</h2>
-
-<div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-
-<div class="glass-card bg-gray-800 p-6 rounded-xl">
-<h3 class="text-2xl font-bold mb-4">Tic Tac Toe</h3>
-<p class="text-gray-300">Classic strategy game.</p>
-</div>
-
-<div class="glass-card bg-gray-800 p-6 rounded-xl">
-<h3 class="text-2xl font-bold mb-4">Memory Match</h3>
-<p class="text-gray-300">Brain training game.</p>
-</div>
-
-</div>
-
-</section>
-
 <!-- CONTACT (FULL SCREEN) -->
 <section id="contact" class="hidden fixed inset-0 bg-black z-50 pt-24 text-center overflow-y-auto">
 

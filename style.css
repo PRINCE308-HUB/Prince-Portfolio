@@ -1,3 +1,4 @@
+/* ================= ROOT ================= */
 :root{
   --orange:#fb923c;
   --orange-light:#facc15;
@@ -5,7 +6,8 @@
   --light-bg:#f8fafc;
 }
 
-/* Typing cursor */
+
+/* ================= TYPING CURSOR ================= */
 .typing-cursor::after{
   content: " |";
   animation: blinkCursor 0.8s infinite;
@@ -16,7 +18,8 @@
   50%{opacity:0;}
 }
 
-/* Navbar slide */
+
+/* ================= NAVBAR ================= */
 .nav-slide {
   animation: navSlide 0.7s ease forwards;
 }
@@ -30,10 +33,6 @@
     transform: translateY(0);
     opacity: 1;
   }
-}
-
-.animate-navbar{
-  animation:navSlide .8s ease-out forwards;
 }
 
 .nav-anim{
@@ -51,6 +50,8 @@
 }
 .nav-anim:hover::after{width:100%;}
 
+
+/* ================= CURSOR GLOW ================= */
 #cursor-glow{
   position:fixed;
   width:20px;
@@ -63,6 +64,8 @@
   z-index:9999;
 }
 
+
+/* ================= SCROLL PROGRESS ================= */
 #progress-bar{
   position:fixed;
   top:0;
@@ -72,7 +75,9 @@
   width:0%;
   z-index:9999;
 }
-/* Glass card hover */
+
+
+/* ================= GLASS CARD ================= */
 .glass-card {
   background: rgba(31, 41, 55, 0.6);
   backdrop-filter: blur(12px);
@@ -84,10 +89,13 @@
   transform: translateY(-10px) scale(1.03);
   box-shadow: 0 25px 50px rgba(0,0,0,.6);
 }
+
 .glass-card:hover h4{
   text-shadow:0 0 10px rgba(251,146,60,0.9);
 }
 
+
+/* ================= HERO ANIMATION ================= */
 @keyframes slideUpFade {
   from {
     transform: translateY(40px);
@@ -103,6 +111,8 @@
   animation: slideUpFade 1s ease-out forwards;
 }
 
+
+/* ================= SCROLL REVEAL ================= */
 .reveal {
   opacity: 0;
   transform: translateY(60px);
@@ -114,42 +124,8 @@
   transform: translateY(0);
 }
 
-.skill-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 16px;
-}
 
-.skill-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg, rgba(251,146,60,0.9), rgba(251,191,36,0.9));
-  transition: 0.5s ease;
-  z-index: 0;
-}
-
-.skill-card:hover::before {
-  left: 0;
-}
-
-.skill-card * {
-  position: relative;
-  z-index: 1;
-}
-.skill-card:hover h4 {
-  color: #111827; 
-  font-weight: 800;
-}
-
-.skill-card:hover p {
-  color: #1f2933; 
-  font-weight: 500;
-}
-/* About section hover fix */
+/* ================= ABOUT CARDS ================= */
 .about-card {
   position: relative;
   overflow: hidden;
@@ -173,7 +149,6 @@
 .about-card:hover {
   transform: translateY(-12px) scale(1.04);
   box-shadow: 0 30px 60px rgba(251,146,60,0.35);
-  z-index: 10;
 }
 
 .about-card * {
@@ -181,22 +156,36 @@
   z-index: 1;
 }
 
-/* About section text readability on hover */
 .about-card:hover h1,
 .about-card:hover h2,
 .about-card:hover h3,
-.about-card:hover h4,
-.about-card:hover span,
-.about-card:hover strong {
+.about-card:hover h4 {
   color: #0f172a !important;
-  font-weight: 800;
 }
 
 .about-card:hover p {
   color: #1e293b !important;
-  font-weight: 500;
 }
 
+
+/* ================= ABOUT BOX ================= */
+.about-box {
+  background: rgba(15,23,42,0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  padding: 22px;
+  border: 1px solid rgba(251,146,60,0.3);
+  transition: all 0.3s ease;
+}
+
+.about-box:hover {
+  transform: translateY(-8px);
+  border-color: rgba(251,146,60,0.8);
+  box-shadow: 0 15px 40px rgba(251,146,60,0.25);
+}
+
+
+/* ================= HEADER NAME EFFECT ================= */
 header h1 {
   position: relative;
   color: white;
@@ -214,36 +203,21 @@ header h1::after {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  white-space: nowrap;
   transition: width 0.5s ease;
-}
-.about-box {
-  background: rgba(15,23,42,0.6);
-  backdrop-filter: blur(12px);
-  border-radius: 14px;
-  padding: 22px;
-
-  /* 👇 visible box */
-  border: 1px solid rgba(251,146,60,0.3);
-
-  transition: all 0.3s ease;
-}
-
-.about-box:hover {
-  transform: translateY(-8px);
-
-  /* 👇 stronger border on hover */
-  border-color: rgba(251,146,60,0.8);
-
-  box-shadow: 0 15px 40px rgba(251,146,60,0.25);
 }
 
 header h1:hover::after {
   width: 100%;
 }
+
+
+/* ================= INFINITY GLOW ================= */
 .infinity-final {
   text-shadow: 0 0 12px rgba(251,146,60,0.9);
 }
+
+
+/* ================= TOOL CARDS ================= */
 .tool-card {
   background: rgba(20,20,20,0.6);
   border: 1px solid rgba(251,146,60,0.15);
@@ -257,7 +231,7 @@ header h1:hover::after {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 8px;
-  color: #fb923c;
+  color: var(--orange);
 }
 
 .tool-card p {
@@ -268,23 +242,50 @@ header h1:hover::after {
 .tool-card:hover {
   transform: translateY(-10px) scale(1.03);
   box-shadow: 0 20px 40px rgba(251,146,60,0.25);
-  border-color: #fb923c;
+  border-color: var(--orange);
 }
+
+
+/* ================= FILTER BUTTONS ================= */
 .filter-btn {
-  padding: 8px 18px;
-  border-radius: 999px;
-  border: 1px solid rgba(251,146,60,0.3);
-  color: #fb923c;
+  position: relative;
+  color: #9ca3af;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.filter-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--orange), var(--orange-light));
   transition: 0.3s;
 }
 
 .filter-btn:hover {
-  background: #fb923c;
-  color: black;
+  color: var(--orange);
 }
 
 .filter-btn.active {
-  background: linear-gradient(90deg,#fb923c,#facc15);
-  color: black;
-  border: none;
+  color: var(--orange);
+}
+
+.filter-btn.active::after {
+  width: 100%;
+}
+
+
+/* ================= FILTER ANIMATION ================= */
+.tool-card.hide {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
+.tool-card.show {
+  opacity: 1;
+  transform: scale(1);
 }

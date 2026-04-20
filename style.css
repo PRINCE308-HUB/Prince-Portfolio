@@ -244,3 +244,47 @@ header h1:hover::after {
 .infinity-final {
   text-shadow: 0 0 12px rgba(251,146,60,0.9);
 }
+.tool-card {
+  background: rgba(20,20,20,0.6);
+  border: 1px solid rgba(251,146,60,0.15);
+  padding: 25px;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.tool-card h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #fb923c;
+}
+
+.tool-card p {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.tool-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(251,146,60,0.25);
+  border-color: #fb923c;
+}
+.filter-btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(251,146,60,0.3);
+  color: #fb923c;
+  transition: 0.3s;
+}
+
+.filter-btn:hover {
+  background: #fb923c;
+  color: black;
+}
+
+.filter-btn.active {
+  background: linear-gradient(90deg,#fb923c,#facc15);
+  color: black;
+  border: none;
+}

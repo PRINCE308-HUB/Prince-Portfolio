@@ -232,6 +232,10 @@ header h1:hover::after {
   font-weight: 600;
   margin-bottom: 8px;
   color: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .tool-card p {
@@ -244,7 +248,9 @@ header h1:hover::after {
   box-shadow: 0 20px 40px rgba(251,146,60,0.25);
   border-color: var(--orange);
 }
-
+.tool-card i {
+  font-size: 22px;
+}
 
 /* ================= FILTER BUTTONS ================= */
 .filter-btn {

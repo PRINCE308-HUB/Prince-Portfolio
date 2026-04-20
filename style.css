@@ -322,3 +322,33 @@ header h1:hover::after {
   opacity: 1;
   transform: scale(1);
 }
+/* ================= PREMIUM BACKGROUND ================= */
+
+.bg-premium {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  background:
+    radial-gradient(circle at 20% 30%, rgba(251,146,60,0.12), transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(250,204,21,0.08), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(251,146,60,0.06), transparent 50%),
+    #000;
+
+  filter: blur(40px);
+  opacity: 0.9;
+
+  animation: glowMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes glowMove {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  100% {
+    transform: translate(-20px, 20px) scale(1.05);
+  }
+}

@@ -217,6 +217,26 @@ header h1::after {
   white-space: nowrap;
   transition: width 0.5s ease;
 }
+.about-box {
+  background: rgba(15,23,42,0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  padding: 22px;
+
+  /* 👇 visible box */
+  border: 1px solid rgba(251,146,60,0.3);
+
+  transition: all 0.3s ease;
+}
+
+.about-box:hover {
+  transform: translateY(-8px);
+
+  /* 👇 stronger border on hover */
+  border-color: rgba(251,146,60,0.8);
+
+  box-shadow: 0 15px 40px rgba(251,146,60,0.25);
+}
 
 header h1:hover::after {
   width: 100%;

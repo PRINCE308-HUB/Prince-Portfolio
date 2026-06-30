@@ -180,6 +180,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const filterBtns = document.querySelectorAll(".filter-btn");
   const cards = document.querySelectorAll("#toolbox-grid .tool-card");
+  const toolboxGrid = document.getElementById("toolbox-grid");
+
+  // Dynamically lock the grid's height to prevent layout shifts when filtering
+  function lockGridHeight() {
+    if (!toolboxGrid) return;
+    
+    // Save current display states
+    const states = Array.from(cards).map(card => card.style.display);
+    
+    // Force all cards to block to measure the full natural height
+    cards.forEach(card => card.style.display = "block");
+    toolboxGrid.style.minHeight = ''; 
+    
+    // Measure max height
+    const fullHeight = toolboxGrid.offsetHeight;
+    
+    // Apply min-height
+    toolboxGrid.style.minHeight = fullHeight + 'px';
+    
+    // Restore original display states
+    cards.forEach((card, i) => card.style.display = states[i]);
+  }
+
+  // Initialize and handle window resizing
+  setTimeout(lockGridHeight, 100);
+  window.addEventListener("resize", lockGridHeight);
 
   filterBtns.forEach(btn => {
 

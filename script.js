@@ -211,37 +211,104 @@ document.addEventListener("DOMContentLoaded", () => {
 
     btn.addEventListener("click", () => {
 
+      // Ignore if clicking the already active button
+      if (btn.classList.contains("active")) return;
+
       /* active button */
       filterBtns.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
 
       const filter = btn.dataset.filter;
+      const gridRect = toolboxGrid.getBoundingClientRect();
 
+      // FIRST: Record initial bounding rects
+      const firstRects = new Map();
       cards.forEach(card => {
+        firstRects.set(card, card.getBoundingClientRect());
+        // Reset transitions so we can snap or prepare them
+        card.style.transition = 'none';
+      });
 
+      // EXECUTE: Apply DOM changes
+      cards.forEach(card => {
         const category = card.dataset.category;
-
+        
         if (filter === "all" || category === filter) {
-
+          // Being shown
           card.style.display = "block";
-
-          setTimeout(() => {
-            card.classList.remove("hide");
-            card.classList.add("show");
-          }, 10);
-
+          card.classList.remove("hide");
+          card.classList.add("show");
+          // Clear any absolute positioning so it rejoins the CSS Grid flow
+          card.style.position = '';
+          card.style.top = '';
+          card.style.left = '';
+          card.style.width = '';
+          card.style.height = '';
+          card.style.transform = ''; // reset any previous translate
         } else {
-
+          // Being hidden
+          const rect = firstRects.get(card);
+          // Only lock it if it was previously visible
+          if (!card.classList.contains("hide")) {
+            card.style.width = rect.width + 'px';
+            card.style.height = rect.height + 'px';
+            card.style.position = 'absolute';
+            card.style.top = (rect.top - gridRect.top) + 'px';
+            card.style.left = (rect.left - gridRect.left) + 'px';
+            // Start at scale 1 before the CSS transitions it to scale 0.8
+            card.style.transform = 'scale(1)'; 
+          }
+          
           card.classList.remove("show");
           card.classList.add("hide");
-
-          setTimeout(() => {
-            card.style.display = "none";
-          }, 350);
-
         }
-
       });
+
+      // LAST: Record new bounding rects for visible cards and INVERT
+      cards.forEach(card => {
+        const category = card.dataset.category;
+        if (filter === "all" || category === filter) {
+          const first = firstRects.get(card);
+          const last = card.getBoundingClientRect();
+
+          const deltaX = first.left - last.left;
+          const deltaY = first.top - last.top;
+
+          // If the card actually moved, invert it back to its starting position
+          if (deltaX !== 0 || deltaY !== 0) {
+            card.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+          }
+        }
+      });
+
+      // PLAY: Animate to final state
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          cards.forEach(card => {
+            const category = card.dataset.category;
+            
+            // Re-enable smooth CSS transitions
+            card.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease';
+            
+            if (filter === "all" || category === filter) {
+              // Visible cards slide into their natural grid position
+              card.style.transform = 'translate(0, 0) scale(1)';
+            } else {
+              // Hidden cards stay where they are and fade/shrink out
+              card.style.transform = 'scale(0.8)';
+            }
+          });
+        });
+      });
+
+      // Cleanup hidden cards after animation completes
+      setTimeout(() => {
+        cards.forEach(card => {
+          if (card.classList.contains("hide")) {
+            card.style.display = "none";
+          }
+        });
+      }, 500); // match transition duration
 
     });
 

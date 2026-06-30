@@ -315,6 +315,48 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+//--------------------------PAGE LOAD & SCROLL ANIMATIONS-------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Fade in background
+  const canvas = document.getElementById("nebula-canvas");
+  if (canvas) {
+    setTimeout(() => {
+      canvas.classList.remove("opacity-0");
+    }, 100);
+  }
+
+  // 2. Cascade hero elements
+  const hiddenElements = document.querySelectorAll('.load-hidden');
+  if (hiddenElements.length > 0) {
+    setTimeout(() => {
+      hiddenElements.forEach(el => {
+        el.classList.remove('load-hidden');
+        el.classList.add('load-fade-up');
+      });
+    }, 100);
+  }
+
+  // 3. Scroll Intersection Observer for remaining sections
+  const revealElements = document.querySelectorAll('.reveal-hidden');
+  if (revealElements.length > 0) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('reveal-hidden');
+          entry.target.classList.add('reveal-show');
+          observer.unobserve(entry.target); // Only animate once per load
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.15, // Trigger when 15% of the section is visible
+      rootMargin: "0px"
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  }
+});
 /* ================= ACTIVE NAVBAR ================= */
 
 const navSections = document.querySelectorAll(

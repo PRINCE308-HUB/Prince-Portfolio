@@ -337,18 +337,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 100);
   }
   
-  // 3. Cascade navbar element
-  const navHidden = document.querySelectorAll('.nav-load-hidden');
-  if (navHidden.length > 0) {
-    setTimeout(() => {
-      navHidden.forEach(el => {
-        el.classList.remove('nav-load-hidden');
-        el.classList.add('nav-load-fade-down');
-      });
-    }, 100);
-  }
+  // Navbar animation logic moved to window load event
+});
 
-  // 4. Scroll Intersection Observer for remaining sections
+// 4. Scroll Intersection Observer for remaining sections
+document.addEventListener("DOMContentLoaded", () => {
   const revealElements = document.querySelectorAll('.reveal-hidden');
   if (revealElements.length > 0) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -368,7 +361,22 @@ document.addEventListener("DOMContentLoaded", () => {
     revealElements.forEach(el => revealObserver.observe(el));
   }
 });
+
+// 5. Navbar Entrance Animation on Window Load
+window.addEventListener("load", () => {
+  const navHidden = document.querySelectorAll('.nav-load-hidden');
+  if (navHidden.length > 0) {
+    // Delay 200ms after full page load so background appears first
+    setTimeout(() => {
+      navHidden.forEach(el => {
+        el.classList.remove('nav-load-hidden');
+        el.classList.add('nav-load-fade-down');
+      });
+    }, 200);
+  }
+});
 /* ================= ACTIVE NAVBAR ================= */
+
 
 const navSections = document.querySelectorAll(
   "#home, #about, #skills, #projects, #contact"

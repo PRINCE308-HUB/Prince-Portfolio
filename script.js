@@ -336,8 +336,19 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }, 100);
   }
+  
+  // 3. Cascade navbar element
+  const navHidden = document.querySelectorAll('.nav-load-hidden');
+  if (navHidden.length > 0) {
+    setTimeout(() => {
+      navHidden.forEach(el => {
+        el.classList.remove('nav-load-hidden');
+        el.classList.add('nav-load-fade-down');
+      });
+    }, 100);
+  }
 
-  // 3. Scroll Intersection Observer for remaining sections
+  // 4. Scroll Intersection Observer for remaining sections
   const revealElements = document.querySelectorAll('.reveal-hidden');
   if (revealElements.length > 0) {
     const revealObserver = new IntersectionObserver((entries, observer) => {

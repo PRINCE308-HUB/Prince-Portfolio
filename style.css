@@ -737,13 +737,24 @@ html {
 .reveal-hidden {
   opacity: 0;
   transform: translateY(20px);
-  /* Use forwards to ensure it stays in its final animated state if we use keyframes, 
-     but we'll use CSS transitions for smoother manual control */
+}
+
+.nav-load-hidden {
+  opacity: 0;
+  transform: translateY(-50px);
 }
 
 /* The active animated state */
 .load-fade-up,
 .reveal-show {
+  opacity: 1;
+  transform: translateY(0);
+  transition-property: opacity, transform;
+  transition-duration: 0.8s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-load-fade-down {
   opacity: 1;
   transform: translateY(0);
   transition-property: opacity, transform;

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prince Johnson Portfolio</title>
+
+<link rel="icon" href="favicon.png" />
+<meta name="description" content="Portfolio of Prince Johnson, a Computer Science student and Cybersecurity enthusiast.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+</head>
+<body class="bg-transparent text-white relative overflow-x-hidden">
+<div id="particles-js" class="fixed inset-0 -z-10 bg-black"></div>
+
+<!-- NAVBAR -->
+<header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+<nav class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center relative">
+<h1 class="logo-text text-xl font-bold">
+  <span class="logo-name">
+    Prince
+  </span>
+  <span class="logo-dot">.</span>
+</h1>
+
+<button id="mobile-menu-button" class="md:hidden text-gray-300 text-2xl focus:outline-none" aria-label="Toggle menu">
+  <i class="fas fa-bars"></i>
+</button>
+
+<ul id="main-nav" class="hidden md:flex space-x-9 text-gray-300 absolute md:static top-full left-0 w-full md:w-auto bg-black md:bg-transparent flex-col md:flex-row items-center p-6 md:p-0 border-b md:border-none border-gray-800">
+<li><a href="#home" class="nav-link active-nav py-2 md:py-0 block">HOME</a></li>
+<li><a href="#about" class="nav-link py-2 md:py-0 block">ABOUT</a></li>
+<li><a href="#projects" class="nav-link py-2 md:py-0 block">PROJECTS</a></li>
+<li><a href="#contact" class="nav-link py-2 md:py-0 block">CONTACT</a></li>
+</ul>
+
+</nav>
+</header>
+
+<!-- MAIN CONTENT -->
+<main id="main-content">
+
+<!-- HERO -->
+<section id="home" class="pt-40 min-h-screen flex flex-col justify-center items-center text-center">
+<h1 class="hero-title-animate text-5xl md:text-7xl font-extrabold pb-4 leading-tight
+bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 
+bg-clip-text text-transparent">
+  Welcome to My Portfolio
+</h1>
+<p id="typing-subtitle" class="mt-4 text-gray-300 text-lg"></p>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="pt-32">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-5xl font-bold mb-10 text-white">About Me</h2>
+
+<div class="grid md:grid-cols-2 gap-12 text-left">
+
+<div class="space-y-6 text-gray-300 text-lg">
+  <p>
+    I'm a <span class="text-orange-400 font-semibold">Computer Science student</span> 
+    and <span class="text-orange-400 font-semibold">Cybersecurity enthusiast</span> 
+    who enjoys building interactive and visually engaging web experiences.
+  </p>
+
+  <p>
+    I’m constantly learning and experimenting with new technologies, whether it’s 
+    improving performance, designing better UI, or building creative projects that 
+    push my limits.
+  </p>
+</div>
+
+<div class="grid grid-cols-2 gap-8">
+
+<div class="about-box">
+<h3 class="text-3xl text-orange-400 font-bold">15+</h3>
+<p class="text-gray-400">Tools Mastered</p>
+</div>
+
+<div class="about-box">
+<h3 id="infinity-counter" class="text-3xl text-orange-400 font-bold">1</h3>
+<p class="text-gray-400">Curiosity</p>
+</div>
+
+<div class="about-box">
+<h3 class="text-3xl text-orange-400 font-bold">CS</h3>
+<p class="text-gray-400">Degree</p>
+</div>
+
+<div class="about-box">
+<h3 class="text-3xl text-orange-400 font-bold">24/7</h3>
+<p class="text-gray-400">Learning</p>
+</div>
+
+</div>
+</div>
+</div>  
+</section>
+
+<!-- ================= TOOLBOX SECTION ================= -->
+<section id="skills" class="pt-32">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- HEADING -->
+    <h2 class="text-5xl font-bold text-white mb-12">
+      My Toolbox
+    </h2>
+    <!-- ICON LIBRARIES LOADED IN HEAD -->
+    <!-- FILTER BUTTONS -->
+    <div class="flex gap-6 mb-10">
+
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Web Dev</button>
+      <button class="filter-btn" data-filter="security">Security</button>
+      <button class="filter-btn" data-filter="language">Languages</button>
+
+    </div>
+
+    <!-- GRID -->
+    <div id="toolbox-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      
+      <!-- Python -->
+      <div class="tool-card" data-category="language">
+        <h4><i class="devicon-python-plain colored"></i> Python</h4>
+        <p>Scripting, automation, and problem solving</p>
+      </div>
+
+      <!-- JavaScript -->
+      <div class="tool-card" data-category="web">
+        <h4><i class="devicon-javascript-plain colored"></i> JavaScript</h4>
+        <p>Interactive UI and frontend logic</p>
+      </div>
+
+      <!-- HTML -->
+      <div class="tool-card" data-category="web">
+        <h4><i class="devicon-html5-plain colored"></i> HTML</h4>
+        <p>Semantic structure for web</p>
+      </div>
+
+      <!-- CSS -->
+      <div class="tool-card" data-category="web">
+        <h4><i class="devicon-css3-plain colored"></i> CSS</h4>
+        <p>Modern layouts and styling</p>
+      </div>
+
+      <!-- React -->
+      <div class="tool-card" data-category="web">
+        <h4><i class="devicon-react-original colored"></i> React</h4>
+        <p>Component-based UI development</p>
+      </div>
+
+      <!-- Node -->
+      <div class="tool-card" data-category="web">
+        <h4><i class="devicon-nodejs-plain colored"></i> Node.js</h4>
+        <p>Backend JavaScript runtime</p>
+      </div>
+
+      <!-- Tailwind -->
+      <div class="tool-card" data-category="web">
+        <h4><i class="devicon-tailwindcss-plain colored"></i> Tailwind</h4>
+        <p>Utility-first CSS framework</p>
+      </div>
+
+      <!-- Linux -->
+      <div class="tool-card" data-category="security">
+        <h4><i class="devicon-linux-plain colored"></i> Linux</h4>
+        <p>System usage & command line</p>
+      </div>
+
+      <!-- Kali -->
+      <div class="tool-card" data-category="security">
+        <h4><i class="fas fa-user-shield"></i> Kali Linux</h4>
+        <p>Security testing tools</p>
+      </div>
+
+      <!-- MySQL -->
+      <div class="tool-card" data-category="web">
+        <h4><i class="devicon-mysql-plain colored"></i> MySQL</h4>
+        <p>Database management</p>
+      </div>
+
+      <!-- Bash -->
+      <div class="tool-card" data-category="language">
+        <h4><i class="fas fa-terminal"></i> Bash</h4>
+        <p>Shell scripting & automation</p>
+      </div>
+
+      <!-- VS Code -->
+      <div class="tool-card" data-category="web">
+       <h4><i class="devicon-vscode-plain colored"></i> VS Code</h4>
+       <p>Code editing and development environment</p>
+     </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- ================= END ================= -->
+
+<!-- PROJECTS -->
+<section id="projects" class="pt-32">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h2 class="text-5xl font-bold text-white mb-12">
+      Projects
+    </h2>
+
+    <!-- Password Strength Checker -->
+<div class="tool-card project-card reveal p-8 text-left">
+
+  <!-- Title -->
+  <h3 class="text-3xl font-bold text-orange-400 mb-4">
+    🔐 Password Strength Checker
+  </h3>
+
+  <!-- Description -->
+  <p class="text-gray-300 leading-relaxed mb-6">
+    A modern web application that evaluates password strength in real time
+    and helps users create stronger and more secure passwords.
+  </p>
+
+  <!-- Tech Stack -->
+  <div class="flex flex-wrap gap-3 mb-6">
+
+    <span class="px-3 py-1 rounded-full bg-gray-800 text-orange-300 text-sm">
+      HTML
+    </span>
+
+    <span class="px-3 py-1 rounded-full bg-gray-800 text-orange-300 text-sm">
+      CSS
+    </span>
+
+    <span class="px-3 py-1 rounded-full bg-gray-800 text-orange-300 text-sm">
+      JavaScript
+    </span>
+
+  </div>
+
+  <!-- Buttons -->
+  <div class="flex gap-4">
+
+    <!-- Live Demo -->
+    <a href="https://prince308-hub.github.io/Password-Strength-Checker/"
+       target="_blank"
+       class="px-5 py-2 rounded-lg bg-gradient-to-r from-orange-500 to-yellow-400 text-black font-semibold hover:scale-105 transition duration-300">
+
+      Live Demo
+    </a>
+
+    <!-- GitHub -->
+    <a href="https://github.com/PRINCE308-HUB/Password-Strength-Checker"
+       target="_blank"
+       class="px-5 py-2 rounded-lg border border-orange-400 text-orange-400 hover:bg-orange-500 hover:text-black transition duration-300">
+
+      GitHub
+    </a>
+
+  </div>
+
+</div>
+
+
+  </div>
+</section>
+<!-- ================= CONTACT SECTION ================= -->
+<section id="contact" class="pt-32 pb-24">
+
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Heading -->
+    <h2 class="text-5xl font-bold text-white mb-12">
+      Contact Me
+    </h2>
+
+    <!-- Grid -->
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- EMAIL -->
+      <a href="mailto:prince308j@gmail.com"
+         class="contact-card reveal">
+
+        <div class="contact-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+
+        <h3>Email</h3>
+
+        <p>prince308j@gmail.com</p>
+
+      </a>
+
+      <!-- LINKEDIN -->
+      <a href="https://www.linkedin.com/in/prince-johnson-48a061266/"
+         target="_blank"
+         class="contact-card reveal">
+
+        <div class="contact-icon">
+          <i class="fab fa-linkedin-in"></i>
+        </div>
+
+        <h3>LinkedIn</h3>
+
+        <p>Connect professionally</p>
+
+      </a>
+
+      <!-- GITHUB -->
+      <a href="https://github.com/PRINCE308-HUB"
+         target="_blank"
+         class="contact-card reveal">
+
+        <div class="contact-icon">
+          <i class="fab fa-github"></i>
+        </div>
+
+        <h3>GitHub</h3>
+
+        <p>Explore my projects</p>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- ================= END ================= -->
+</main>
+
+<!-- FOOTER -->
+<footer class="w-full text-center py-6 text-gray-400 text-sm border-t border-gray-800 mt-20">
+  Designed by 
+  <span class="text-white font-semibold hover:text-orange-400 transition duration-300">
+    Prince Johnson 😎
+  </span>
+  <span class="text-gray-500 ml-2">© 2026</span>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

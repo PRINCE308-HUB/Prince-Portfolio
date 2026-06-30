@@ -6,6 +6,28 @@
   --light-bg:#f8fafc;
 }
 
+/* ================= GLOBAL BASE & SCROLLBAR ================= */
+html, body {
+  background-color: #000000;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #000000; 
+}
+::-webkit-scrollbar-thumb {
+  background: #334155; 
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #fb923c; 
+}
+::-webkit-scrollbar-corner {
+  background: #000000; 
+}
 
 /* ================= TYPING CURSOR ================= */
 .typing-cursor::after{
@@ -36,16 +58,18 @@
 }
 
 /* scrolling effect */
-#navbar.scrolled {
+#navbar nav {
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+  backdrop-filter: blur(0px);
+}
 
-  background: rgba(255,255,255,0.03);
-
-  backdrop-filter: blur(12px);
-
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-
-  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-  padding: 10px 0;
+#navbar.scrolled nav {
+  background: rgba(10, 10, 10, 0.45);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
 }
 
 /* ================= NAVBAR ================= */
@@ -83,15 +107,12 @@
 
 .nav-link {
   position: relative;
-
   color: #9ca3af;
-
   transition: color 0.3s ease;
-
   font-weight: 500;
 }
 
-/* text becomes white */
+/* text becomes white on hover */
 .nav-link:hover {
   color: white;
 }
@@ -99,36 +120,28 @@
 /* underline */
 .nav-link::after {
   content: "";
-
   position: absolute;
-
-  left: 0;
+  left: 50%;
   bottom: -6px;
-
+  transform: translateX(-50%);
   width: 0%;
-  height: 2px;
-
-  background: linear-gradient(
-    90deg,
-    #fb923c,
-    #facc15
-  );
-
+  height: 1px;
+  background: #fb923c;
   transition: width 0.35s ease;
 }
 
-/* animate left -> right */
+/* animate center out */
 .nav-link:hover::after {
-  width: 100%;
+  width: 70%;
 }
-/* active section */
 
+/* active section */
 .active-nav {
-  color: white;
+  color: #fb923c !important;
 }
 
 .active-nav::after {
-  width: 100%;
+  width: 70%;
 }
 
 /* ================= CURSOR GLOW ================= */
@@ -636,4 +649,83 @@ html {
   text-shadow:
     0 0 10px rgba(251,146,60,0.8),
     0 0 20px rgba(251,146,60,0.5);
+}
+
+/* Removed old liquid mesh CSS since we moved to canvas nebula */
+
+/* ================= SHOOTING STARS ================= */
+.shooting-star {
+  position: absolute;
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(251,146,60,0) 0%, rgba(251,146,60,1) 60%, rgba(245,158,11,1) 100%);
+  opacity: 0;
+  animation: shoot 2s linear forwards;
+  box-shadow: 0 0 10px rgba(251,146,60,0.8);
+}
+
+.shooting-star::before {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  background: #f59e0b; /* pure bright amber/orange instead of white */
+  border-radius: 50%;
+  box-shadow: 
+    0 0 12px 4px rgba(245, 158, 11, 1), 
+    0 0 24px 8px rgba(251, 146, 60, 0.8);
+}
+
+.static-star {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50%;
+  animation: twinkle var(--twinkle-duration) infinite alternate ease-in-out;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.2; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 8px 2px rgba(251,146,60,0.6); }
+}
+
+@keyframes shoot {
+  0% {
+    transform: translateX(0) translateY(0) rotate(var(--angle)) scaleX(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(var(--travelX)) translateY(var(--travelY)) rotate(var(--angle)) scaleX(1);
+    opacity: 0;
+  }
+}
+
+/* ================= PREFERS REDUCED MOTION ================= */
+@media (prefers-reduced-motion: reduce) {
+  .liquid-blob {
+    animation: none;
+  }
+  .shooting-star {
+    display: none;
+  }
+}
+
+/* ================= SCROLL INDICATOR ================= */
+.scroll-dot {
+  animation: scrollBounce 2s infinite ease-in-out;
+}
+
+@keyframes scrollBounce {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(12px); opacity: 0; }
+  51% { transform: translateY(-5px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }

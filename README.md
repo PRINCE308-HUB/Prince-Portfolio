@@ -46,12 +46,6 @@ Welcome to the source code of my personal portfolio website. This project showca
 * Active section highlighting
 * Smooth scrolling experience
 
-### 🎮 Interactive Games
-
-* Built-in browser games
-* Responsive layouts
-* Smooth gameplay experience
-
 ### 📱 Fully Responsive
 
 * Optimized for desktop
@@ -97,9 +91,7 @@ Welcome to the source code of my personal portfolio website. This project showca
 * Premium modern UI/UX
 * Interactive animations and visual effects
 * High-performance rendering
-* Mobile-first responsive design
 * Cybersecurity-inspired aesthetic
-* Interactive project and game showcase
 * Clean and maintainable codebase
 
 ---

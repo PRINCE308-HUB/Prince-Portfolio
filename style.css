@@ -259,7 +259,7 @@ html, body {
   border-radius: 14px;
   padding: 22px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.35s ease;
+  transition: all 0.15s ease;
 }
 
 .about-box:hover {
@@ -309,7 +309,6 @@ header h1:hover::after {
 .tool-card {
   position: relative;
   background: rgba(255, 255, 255, 0.03); /* dark glass */
-  backdrop-filter: blur(12px);
   border-radius: 18px;
   padding: 28px 20px;
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -343,24 +342,7 @@ header h1:hover::after {
 .tool-card i {
   font-size: 22px;
 }
-.tool-card::after {
-  content: "";
-  position: absolute;
-  bottom: 12px;
-  left: 20%;
-  width: 60%;
-  height: 4px;
-
-  background: linear-gradient(
-    90deg,
-    #fb923c,
-    #facc15
-  );
-
-  border-radius: 999px;
-  opacity: 0.8;
-  transition: 0.3s ease;
-}
+/* Removed the orange bottom line so it doesn't clash with brand glows */
 
 /* hidden cards */
 .tool-card.hide {
@@ -409,11 +391,7 @@ header h1:hover::after {
   width: 100%;
 }
 
-.tool-card:hover::after {
-  width: 70%;
-  left: 15%;
-  box-shadow: 0 0 12px rgba(251,146,60,0.8);
-}
+/* Removed tool-card:hover::after */
 
 /* ================= FILTER ANIMATION ================= */
 .tool-card.hide {
@@ -453,105 +431,118 @@ html {
 }
 /* ================= CONTACT SECTION ================= */
 
-.contact-card {
+.chamfer-shadow-wrap {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.chamfer-shadow-wrap:hover {
+  transform: translateY(-3px);
+  filter: drop-shadow(0 12px 24px rgba(251, 146, 60, 0.15));
+}
+
+.chamfer-border {
   position: relative;
-
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-
-  border: 1px solid rgba(255, 255, 255, 0.05);
-
-  border-radius: 22px;
-
-  padding: 40px 30px;
-
-  text-align: center;
-
+  width: 100%;
+  height: 100%;
+  padding: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  clip-path: polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);
+  transition: background 0.3s ease;
   overflow: hidden;
-
-  transition: all 0.35s ease;
 }
 
-/* glow line */
-.contact-card::after {
+.chamfer-border::before {
   content: "";
-
   position: absolute;
-
-  bottom: 12px;
-  left: 20%;
-
-  width: 60%;
-  height: 4px;
-
-  border-radius: 999px;
-
+  top: 0;
+  left: -150%;
+  width: 150%;
+  height: 100%;
   background: linear-gradient(
-    90deg,
-    #fb923c,
-    #facc15
+    115deg,
+    transparent 0%,
+    transparent 35%,
+    rgba(251, 146, 60, 0.85) 50%,
+    transparent 65%,
+    transparent 100%
   );
-
-  opacity: 0.85;
-
-  transition: 0.35s ease;
+  z-index: 0;
+  transition: left 0s ease; /* Instant reset on unhover */
 }
 
-.contact-card:hover {
-  transform: translateY(-12px) scale(1.03);
-
-  border-color: rgba(251,146,60,0.5);
-
-  box-shadow: 0 20px 60px rgba(251,146,60,0.18);
+.chamfer-shadow-wrap:hover .chamfer-border {
+  background: rgba(251, 146, 60, 0.2); /* Subtle ambient base glow */
 }
 
-.contact-card:hover::after {
-  width: 75%;
-  left: 12%;
+.chamfer-shadow-wrap:hover .chamfer-border::before {
+  left: 150%;
+  transition: left 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.contact-icon {
-  width: 80px;
-  height: 80px;
+.chamfer-inner {
+  position: relative;
+  z-index: 1;
+  background: #0f0f11;
+  clip-path: polygon(17px 0, 100% 0, 100% calc(100% - 17px), calc(100% - 17px) 100%, 0 100%, 0 17px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
 
+
+
+/* Icon Styles */
+.chamfer-icon {
+  width: 72px;
+  height: 72px;
   margin: 0 auto 24px;
-
   border-radius: 50%;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  background: linear-gradient(
-    135deg,
-    #fb923c,
-    #facc15
-  );
-
-  color: black;
-
-  font-size: 30px;
-
-  transition: 0.35s ease;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
+  color: #fb923c;
+  font-size: 28px;
+  transition: all 0.35s ease;
+  box-shadow: 0 0 15px rgba(251,146,60,0.05);
 }
 
-.contact-card:hover .contact-icon {
-  transform: scale(1.12) rotate(6deg);
+.chamfer-shadow-wrap:hover .chamfer-icon {
+  transform: scale(1.1) rotate(5deg);
+  color: #facc15;
+  box-shadow: 0 0 25px rgba(251,146,60,0.4);
 }
 
-.contact-card h3 {
-  font-size: 26px;
+.chamfer-title {
+  font-size: 24px;
   font-weight: 700;
-
   color: white;
-
-  margin-bottom: 12px;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
 }
 
-.contact-card p {
-  color: #94a3b8;
+.chamfer-shadow-wrap:hover .chamfer-title {
+  color: #fb923c;
+}
 
+.chamfer-text {
+  color: #94a3b8;
   font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.chamfer-shadow-wrap:hover .chamfer-text {
+  color: #e2e8f0;
 }
 /* ================= STABLE FILTER GRID ================= */
 
@@ -788,4 +779,353 @@ html {
 
 .pause-marquee {
   animation-play-state: paused !important;
+}
+
+/* ================= 3D PROJECT CARDS ================= */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.project-3d-wrap {
+  perspective: 1000px;
+}
+
+.project-card-inner {
+  transform-style: preserve-3d;
+  will-change: transform;
+  /* Smooth transition when mouse leaves */
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.project-card-inner.is-hovered {
+  /* Remove transition while moving mouse for instant tracking */
+  transition: none;
+}
+
+/* ================= TOOLBOX BRAND GLOWS ================= */
+.tool-card:hover {
+  transform: translateY(-8px);
+}
+.tool-card[data-brand="python"]:hover { box-shadow: 0 0 30px rgba(255,212,59,0.5); border-color: rgba(255,212,59,0.8); }
+.tool-card[data-brand="javascript"]:hover { box-shadow: 0 0 30px rgba(247,223,30,0.5); border-color: rgba(247,223,30,0.8); }
+.tool-card[data-brand="html"]:hover { box-shadow: 0 0 30px rgba(227,79,38,0.5); border-color: rgba(227,79,38,0.8); }
+.tool-card[data-brand="css"]:hover { box-shadow: 0 0 30px rgba(21,114,182,0.5); border-color: rgba(21,114,182,0.8); }
+.tool-card[data-brand="react"]:hover { box-shadow: 0 0 30px rgba(97,218,251,0.5); border-color: rgba(97,218,251,0.8); }
+.tool-card[data-brand="nodejs"]:hover { box-shadow: 0 0 30px rgba(51,153,51,0.5); border-color: rgba(51,153,51,0.8); }
+.tool-card[data-brand="tailwind"]:hover { box-shadow: 0 0 30px rgba(6,182,212,0.5); border-color: rgba(6,182,212,0.8); }
+.tool-card[data-brand="linux"]:hover { box-shadow: 0 0 30px rgba(252,198,36,0.5); border-color: rgba(252,198,36,0.8); }
+.tool-card[data-brand="kali"]:hover { box-shadow: 0 0 30px rgba(85,114,255,0.5); border-color: rgba(85,114,255,0.8); }
+.tool-card[data-brand="bash"]:hover { box-shadow: 0 0 30px rgba(78,170,37,0.5); border-color: rgba(78,170,37,0.8); }
+.tool-card[data-brand="git"]:hover { box-shadow: 0 0 30px rgba(240,80,50,0.5); border-color: rgba(240,80,50,0.8); }
+.tool-card[data-brand="github"]:hover { box-shadow: 0 0 30px rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.6); }
+.tool-card[data-brand="vscode"]:hover { box-shadow: 0 0 30px rgba(0,120,215,0.5); border-color: rgba(0,120,215,0.8); }
+.tool-card[data-brand="postman"]:hover { box-shadow: 0 0 30px rgba(255,108,55,0.5); border-color: rgba(255,108,55,0.8); }
+.tool-card[data-brand="docker"]:hover { box-shadow: 0 0 30px rgba(36,150,237,0.5); border-color: rgba(36,150,237,0.8); }
+.tool-card[data-brand="nmap"]:hover { box-shadow: 0 0 30px rgba(255,153,0,0.5); border-color: rgba(255,153,0,0.8); }
+.tool-card[data-brand="wireshark"]:hover { box-shadow: 0 0 30px rgba(0,102,153,0.5); border-color: rgba(0,102,153,0.8); }
+.tool-card[data-brand="metasploit"]:hover { box-shadow: 0 0 30px rgba(220,38,38,0.5); border-color: rgba(220,38,38,0.8); }
+.tool-card[data-brand="c"]:hover { box-shadow: 0 0 30px rgba(168,185,204,0.5); border-color: rgba(168,185,204,0.8); }
+.tool-card[data-brand="cpp"]:hover { box-shadow: 0 0 30px rgba(0,89,156,0.5); border-color: rgba(0,89,156,0.8); }
+
+.contact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+
+/* ================= 3D CONTACT CARDS (REMOVED) ================= */
+
+/* ================= CONCEPT 2: APPLE-STYLE BENTO ================= */
+.concept-bento {
+  background: linear-gradient(145deg, #1f1f22, #0d0d0e);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.05), 0 10px 20px rgba(0,0,0,0.3);
+  height: 100%;
+}
+.concept-bento:hover {
+  transform: scale(1.03);
+  border-color: rgba(255,255,255,0.2);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.5);
+}
+.concept-bento .chamfer-icon {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  font-size: 42px;
+  color: #fff;
+  margin-bottom: 20px;
+  transition: all 0.4s ease;
+}
+.concept-bento:hover .chamfer-icon {
+  transform: translateY(-5px);
+  color: #fb923c;
+}
+.concept-bento .chamfer-title {
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+.concept-bento .chamfer-text {
+  font-size: 15px;
+  color: #94a3b8;
+80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(var(--travelX)) translateY(var(--travelY)) rotate(var(--angle)) scaleX(1);
+    opacity: 0;
+  }
+}
+
+/* ================= PREFERS REDUCED MOTION ================= */
+@media (prefers-reduced-motion: reduce) {
+  .liquid-blob {
+    animation: none;
+  }
+  .shooting-star {
+    display: none;
+  }
+}
+
+/* ================= SCROLL INDICATOR ================= */
+.scroll-dot {
+  animation: scrollBounce 2s infinite ease-in-out;
+}
+
+@keyframes scrollBounce {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(12px); opacity: 0; }
+  51% { transform: translateY(-5px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* ================= PAGE LOAD & SCROLL ANIMATIONS ================= */
+
+/* Initial hidden state for load and scroll reveals */
+.load-hidden,
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition-property: opacity, transform;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-load-hidden {
+  opacity: 0;
+  transform: translateY(-50px);
+}
+
+/* The active animated state */
+.load-fade-up,
+.reveal-show {
+  opacity: 1;
+  transform: translateY(0);
+  transition-property: opacity, transform;
+  transition-duration: 0.8s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-load-fade-down {
+  opacity: 1;
+  transform: translateY(0);
+  transition-property: opacity, transform;
+  transition-duration: 0.8s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Staggered hero delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-600 { transition-delay: 600ms; }
+
+
+/* ================= MARQUEE ANIMATIONS ================= */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+  width: max-content;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 30s linear infinite;
+  width: max-content;
+}
+
+.pause-marquee {
+  animation-play-state: paused !important;
+}
+
+/* ================= 3D PROJECT CARDS ================= */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.project-3d-wrap {
+  perspective: 1000px;
+}
+
+.project-card-inner {
+  transform-style: preserve-3d;
+  will-change: transform;
+  /* Smooth transition when mouse leaves */
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.project-card-inner.is-hovered {
+  /* Remove transition while moving mouse for instant tracking */
+  transition: none;
+}
+
+/* ================= TOOLBOX BRAND GLOWS ================= */
+.tool-card:hover {
+  transform: translateY(-8px);
+}
+.tool-card[data-brand="python"]:hover { box-shadow: 0 0 30px rgba(255,212,59,0.5); border-color: rgba(255,212,59,0.8); }
+.tool-card[data-brand="javascript"]:hover { box-shadow: 0 0 30px rgba(247,223,30,0.5); border-color: rgba(247,223,30,0.8); }
+.tool-card[data-brand="html"]:hover { box-shadow: 0 0 30px rgba(227,79,38,0.5); border-color: rgba(227,79,38,0.8); }
+.tool-card[data-brand="css"]:hover { box-shadow: 0 0 30px rgba(21,114,182,0.5); border-color: rgba(21,114,182,0.8); }
+.tool-card[data-brand="react"]:hover { box-shadow: 0 0 30px rgba(97,218,251,0.5); border-color: rgba(97,218,251,0.8); }
+.tool-card[data-brand="nodejs"]:hover { box-shadow: 0 0 30px rgba(51,153,51,0.5); border-color: rgba(51,153,51,0.8); }
+.tool-card[data-brand="tailwind"]:hover { box-shadow: 0 0 30px rgba(6,182,212,0.5); border-color: rgba(6,182,212,0.8); }
+.tool-card[data-brand="linux"]:hover { box-shadow: 0 0 30px rgba(252,198,36,0.5); border-color: rgba(252,198,36,0.8); }
+.tool-card[data-brand="kali"]:hover { box-shadow: 0 0 30px rgba(85,114,255,0.5); border-color: rgba(85,114,255,0.8); }
+.tool-card[data-brand="bash"]:hover { box-shadow: 0 0 30px rgba(78,170,37,0.5); border-color: rgba(78,170,37,0.8); }
+.tool-card[data-brand="git"]:hover { box-shadow: 0 0 30px rgba(240,80,50,0.5); border-color: rgba(240,80,50,0.8); }
+.tool-card[data-brand="github"]:hover { box-shadow: 0 0 30px rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.6); }
+.tool-card[data-brand="vscode"]:hover { box-shadow: 0 0 30px rgba(0,120,215,0.5); border-color: rgba(0,120,215,0.8); }
+.tool-card[data-brand="postman"]:hover { box-shadow: 0 0 30px rgba(255,108,55,0.5); border-color: rgba(255,108,55,0.8); }
+.tool-card[data-brand="docker"]:hover { box-shadow: 0 0 30px rgba(36,150,237,0.5); border-color: rgba(36,150,237,0.8); }
+.tool-card[data-brand="nmap"]:hover { box-shadow: 0 0 30px rgba(255,153,0,0.5); border-color: rgba(255,153,0,0.8); }
+.tool-card[data-brand="wireshark"]:hover { box-shadow: 0 0 30px rgba(0,102,153,0.5); border-color: rgba(0,102,153,0.8); }
+.tool-card[data-brand="metasploit"]:hover { box-shadow: 0 0 30px rgba(220,38,38,0.5); border-color: rgba(220,38,38,0.8); }
+.tool-card[data-brand="c"]:hover { box-shadow: 0 0 30px rgba(168,185,204,0.5); border-color: rgba(168,185,204,0.8); }
+.tool-card[data-brand="cpp"]:hover { box-shadow: 0 0 30px rgba(0,89,156,0.5); border-color: rgba(0,89,156,0.8); }
+
+.contact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+
+/* ================= 3D CONTACT CARDS (REMOVED) ================= */
+
+/* ================= CONCEPT 2: PREMIUM BENTO CARDS ================= */
+.concept-bento {
+  position: relative;
+  background: #09090b;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-decoration: none;
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+.concept-bento-inner {
+  position: absolute;
+  inset: 1px;
+  background: linear-gradient(180deg, rgba(39, 39, 42, 0.4) 0%, rgba(24, 24, 27, 0.9) 100%);
+  border-radius: 23px;
+  z-index: 1;
+  transition: background 0.5s ease;
+}
+.concept-bento::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.02) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  z-index: 2;
+  transition: background 0.5s ease;
+}
+.concept-bento-glow {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: #fb923c;
+  filter: blur(60px);
+  border-radius: 50%;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.concept-bento-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.concept-bento:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 40px rgba(251, 146, 60, 0.08);
+}
+.concept-bento:hover .concept-bento-glow {
+  opacity: 0.4;
+  transform: translateX(-50%) translateY(20px) scale(1.2);
+}
+.concept-bento:hover::before {
+  background: linear-gradient(180deg, rgba(251,146,60,0.5) 0%, rgba(255,255,255,0.05) 100%);
+}
+.concept-bento .chamfer-icon {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  font-size: 42px;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 20px;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease, filter 0.4s ease;
+}
+.concept-bento:hover .chamfer-icon {
+  transform: translateY(-6px) scale(1.1);
+  color: #fb923c;
+  filter: drop-shadow(0 4px 12px rgba(251, 146, 60, 0.4));
+}
+.concept-bento .chamfer-title {
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  color: #fff;
+}
+.concept-bento .chamfer-text {
+  font-size: 15px;
+  color: #a1a1aa;
+  transition: color 0.4s ease;
+}
+.concept-bento:hover .chamfer-text {
+  color: #e4e4e7;
 }

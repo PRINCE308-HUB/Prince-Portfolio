@@ -416,3 +416,43 @@ if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
 window.scrollTo(0, 0);
+
+// ---------------- 3D CYBER-GLOW PROJECT CARDS ----------------
+const projectWraps = document.querySelectorAll('.project-3d-wrap');
+
+projectWraps.forEach(wrap => {
+  const card = wrap.querySelector('.project-card-inner') || wrap.querySelector('.contact-card-inner');
+  const glow = wrap.querySelector('.glow');
+
+  wrap.addEventListener('mousemove', (e) => {
+    card.classList.add('is-hovered');
+
+    // Get dimensions of the wrap
+    const rect = wrap.getBoundingClientRect();
+    
+    // Mouse position relative to the card
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // Move the glow to follow the mouse
+    glow.style.left = `${x}px`;
+    glow.style.top = `${y}px`;
+
+    // Calculate rotation (max rotation 10 degrees)
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = ((y - centerY) / centerY) * -8;
+    const rotateY = ((x - centerX) / centerX) * 8;
+
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    card.style.boxShadow = `${-rotateY}px ${rotateX}px 30px rgba(251,146,60,0.15)`;
+  });
+
+  wrap.addEventListener('mouseleave', () => {
+    card.classList.remove('is-hovered');
+    // Reset transform to lay flat
+    card.style.transform = `rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+    card.style.boxShadow = `0 0 0 rgba(0,0,0,0)`;
+  });
+});

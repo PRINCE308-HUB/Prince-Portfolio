@@ -177,145 +177,54 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 //--------------------------FILTER-------------------------------
 document.addEventListener("DOMContentLoaded", () => {
-
   const filterBtns = document.querySelectorAll(".filter-btn");
-  const cards = document.querySelectorAll("#toolbox-grid .tool-card");
-  const toolboxGrid = document.getElementById("toolbox-grid");
-
-  // Dynamically lock the grid's height to prevent layout shifts when filtering
-  function lockGridHeight() {
-    if (!toolboxGrid) return;
-    
-    // Save current display states
-    const states = Array.from(cards).map(card => card.style.display);
-    
-    // Force all cards to block to measure the full natural height
-    cards.forEach(card => card.style.display = "block");
-    toolboxGrid.style.minHeight = ''; 
-    
-    // Measure max height
-    const fullHeight = toolboxGrid.offsetHeight;
-    
-    // Apply min-height
-    toolboxGrid.style.minHeight = fullHeight + 'px';
-    
-    // Restore original display states
-    cards.forEach((card, i) => card.style.display = states[i]);
-  }
-
-  // Initialize and handle window resizing
-  setTimeout(lockGridHeight, 100);
-  window.addEventListener("resize", lockGridHeight);
+  const marqueeTracks = document.querySelectorAll(".marquee-track");
 
   filterBtns.forEach(btn => {
-
     btn.addEventListener("click", () => {
-
-      // Ignore if clicking the already active button
       if (btn.classList.contains("active")) return;
 
-      /* active button */
       filterBtns.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
 
-      const filter = btn.dataset.filter;
-      const gridRect = toolboxGrid.getBoundingClientRect();
+      const filterValue = btn.getAttribute("data-filter");
+      
+      const allCards = document.querySelectorAll("#toolbox-grid .tool-card:not(.is-clone)");
+      const allClones = document.querySelectorAll("#toolbox-grid .tool-card.is-clone");
 
-      // FIRST: Record initial bounding rects
-      const firstRects = new Map();
-      cards.forEach(card => {
-        firstRects.set(card, card.getBoundingClientRect());
-        // Reset transitions so we can snap or prepare them
-        card.style.transition = 'none';
-      });
-
-      // EXECUTE: Apply DOM changes
-      cards.forEach(card => {
-        const category = card.dataset.category;
-        
-        if (filter === "all" || category === filter) {
-          // Being shown
-          card.style.display = "block";
-          card.classList.remove("hide");
-          card.classList.add("show");
-          // Clear any absolute positioning so it rejoins the CSS Grid flow
-          card.style.position = '';
-          card.style.top = '';
-          card.style.left = '';
-          card.style.width = '';
-          card.style.height = '';
-          card.style.transform = ''; // reset any previous translate
-        } else {
-          // Being hidden
-          const rect = firstRects.get(card);
-          // Only lock it if it was previously visible
-          if (!card.classList.contains("hide")) {
-            card.style.width = rect.width + 'px';
-            card.style.height = rect.height + 'px';
-            card.style.position = 'absolute';
-            card.style.top = (rect.top - gridRect.top) + 'px';
-            card.style.left = (rect.left - gridRect.left) + 'px';
-            // Start at scale 1 before the CSS transitions it to scale 0.8
-            card.style.transform = 'scale(1)'; 
-          }
-          
-          card.classList.remove("show");
-          card.classList.add("hide");
-        }
-      });
-
-      // LAST: Record new bounding rects for visible cards and INVERT
-      cards.forEach(card => {
-        const category = card.dataset.category;
-        if (filter === "all" || category === filter) {
-          const first = firstRects.get(card);
-          const last = card.getBoundingClientRect();
-
-          const deltaX = first.left - last.left;
-          const deltaY = first.top - last.top;
-
-          // If the card actually moved, invert it back to its starting position
-          if (deltaX !== 0 || deltaY !== 0) {
-            card.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
-          }
-        }
-      });
-
-      // PLAY: Animate to final state
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          cards.forEach(card => {
-            const category = card.dataset.category;
-            
-            // Re-enable smooth CSS transitions
-            card.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease';
-            
-            if (filter === "all" || category === filter) {
-              // Visible cards slide into their natural grid position
-              card.style.transform = 'translate(0, 0) scale(1)';
-            } else {
-              // Hidden cards stay where they are and fade/shrink out
-              card.style.transform = 'scale(0.8)';
-            }
-          });
+      if (filterValue === "all") {
+        // Restore Marquee mode
+        marqueeTracks[0].classList.add("animate-marquee");
+        marqueeTracks[1].classList.add("animate-marquee-reverse");
+        marqueeTracks.forEach(track => {
+          track.classList.remove("flex-wrap", "justify-center");
+          track.classList.add("w-max");
         });
-      });
-
-      // Cleanup hidden cards after animation completes
-      setTimeout(() => {
-        cards.forEach(card => {
-          if (card.classList.contains("hide")) {
+        
+        allCards.forEach(card => card.style.display = "block");
+        allClones.forEach(clone => clone.style.display = "block");
+      } else {
+        // Disable Marquee mode
+        marqueeTracks[0].classList.remove("animate-marquee");
+        marqueeTracks[1].classList.remove("animate-marquee-reverse");
+        marqueeTracks.forEach(track => {
+          track.classList.add("flex-wrap", "justify-center");
+          track.classList.remove("w-max");
+        });
+        
+        allClones.forEach(clone => clone.style.display = "none");
+        
+        allCards.forEach(card => {
+          if (card.getAttribute("data-category") === filterValue) {
+            card.style.display = "block";
+          } else {
             card.style.display = "none";
           }
         });
-      }, 500); // match transition duration
-
+      }
     });
-
   });
-
 });
-
 //--------------------------PAGE LOAD & SCROLL ANIMATIONS-------------------------------
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Fade in background

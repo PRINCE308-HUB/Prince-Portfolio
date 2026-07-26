@@ -140,83 +140,64 @@
       <button class="filter-btn" data-filter="web">Web Dev</button>
       <button class="filter-btn" data-filter="security">Security</button>
       <button class="filter-btn" data-filter="language">Languages</button>
+      <button class="filter-btn" data-filter="tools">Tools</button>
 
     </div>
 
     <!-- GRID -->
-    <div id="toolbox-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 content-start relative reveal-hidden delay-200">
+    <div id="toolbox-grid" class="flex flex-col gap-8 relative reveal-hidden delay-200">
       
-      <!-- Python -->
-      <div class="tool-card" data-category="language">
-        <h4><i class="devicon-python-plain colored"></i> Python</h4>
-        <p>Scripting, automation, and problem solving</p>
+      <!-- Row 1 -->
+      <div class="marquee-container overflow-hidden group -mx-6 px-6">
+        <div class="marquee-track flex gap-8 w-max animate-marquee group-hover:pause-marquee">
+          <div class="tool-card w-64 flex-shrink-0" data-category="language"><h4><i class="devicon-python-plain colored"></i> Python</h4><p>Scripting, automation, and problem solving</p></div>
+          <div class="tool-card w-64 flex-shrink-0" data-category="language"><h4><i class="devicon-javascript-plain colored"></i> JavaScript</h4><p>Interactive UI and frontend logic</p></div>
+          <div class="tool-card w-64 flex-shrink-0" data-category="language"><h4><i class="devicon-html5-plain colored"></i> HTML</h4><p>Semantic structure for web</p></div>
+          <div class="tool-card w-64 flex-shrink-0" data-category="language"><h4><i class="devicon-css3-plain colored"></i> CSS</h4><p>Modern layouts and styling</p></div>
+          <div class="tool-card w-64 flex-shrink-0" data-category="web"><h4><i class="devicon-react-original colored"></i> React</h4><p>Component-based UI development</p></div>
+          <div class="tool-card w-64 flex-shrink-0" data-category="web"><h4><i class="devicon-nodejs-plain colored"></i> Node.js</h4><p>Backend JavaScript runtime</p></div>
+          <div class="tool-card w-64 flex-shrink-0" data-category="web"><h4><i class="devicon-tailwindcss-plain colored"></i> Tailwind</h4><p>Utility-first CSS framework</p></div>
+          <div class="tool-card w-64 flex-shrink-0" data-category="security"><h4><i class="fab fa-linux text-gray-200"></i> Linux</h4><p>System usage & command line</p></div>
+          <div class="tool-card w-64 flex-shrink-0" data-category="security"><h4><i class="fas fa-user-shield"></i> Kali Linux</h4><p>Security testing tools</p></div>
+          <div class="tool-card w-64 flex-shrink-0" data-category="web"><h4><i class="devicon-mysql-plain colored"></i> MySQL</h4><p>Database management</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="language"><h4><i class="devicon-python-plain colored"></i> Python</h4><p>Scripting, automation, and problem solving</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="language"><h4><i class="devicon-javascript-plain colored"></i> JavaScript</h4><p>Interactive UI and frontend logic</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="language"><h4><i class="devicon-html5-plain colored"></i> HTML</h4><p>Semantic structure for web</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="language"><h4><i class="devicon-css3-plain colored"></i> CSS</h4><p>Modern layouts and styling</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="web"><h4><i class="devicon-react-original colored"></i> React</h4><p>Component-based UI development</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="web"><h4><i class="devicon-nodejs-plain colored"></i> Node.js</h4><p>Backend JavaScript runtime</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="web"><h4><i class="devicon-tailwindcss-plain colored"></i> Tailwind</h4><p>Utility-first CSS framework</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="security"><h4><i class="fab fa-linux text-gray-200"></i> Linux</h4><p>System usage & command line</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="security"><h4><i class="fas fa-user-shield"></i> Kali Linux</h4><p>Security testing tools</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="web"><h4><i class="devicon-mysql-plain colored"></i> MySQL</h4><p>Database management</p></div>
+        </div>
       </div>
 
-      <!-- JavaScript -->
-      <div class="tool-card" data-category="web">
-        <h4><i class="devicon-javascript-plain colored"></i> JavaScript</h4>
-        <p>Interactive UI and frontend logic</p>
+      <!-- Row 2 -->
+      <div class="marquee-container overflow-hidden group -mx-6 px-6">
+        <div class="marquee-track flex gap-8 w-max animate-marquee-reverse group-hover:pause-marquee">
+          <div class="tool-card w-64 flex-shrink-0" data-category="language"><h4><i class="fas fa-terminal"></i> Bash</h4><p>Shell scripting & automation</p></div>
+          <div class="tool-card w-64 flex-shrink-0" data-category="tools"><h4><i class="devicon-vscode-plain colored"></i> VS Code</h4><p>Code editing and development environment</p></div>
+          <div class="tool-card w-64 flex-shrink-0" data-category="tools"><h4><i class="devicon-git-plain colored"></i> Git</h4><p>Version control & collaboration</p></div>
+          <div class="tool-card w-64 flex-shrink-0" data-category="tools"><h4><i class="devicon-github-original colored"></i> GitHub</h4><p>Code hosting and open source</p></div>
+          <div class="tool-card w-64 flex-shrink-0" data-category="language"><h4><i class="fab fa-markdown text-gray-200"></i> Markdown</h4><p>Documentation and text formatting</p></div>
+          <div class="tool-card w-64 flex-shrink-0" data-category="security"><h4><i class="fas fa-network-wired text-orange-400"></i> Nmap</h4><p>Network discovery & auditing</p></div>
+          <div class="tool-card w-64 flex-shrink-0" data-category="security"><h4><i class="fas fa-wave-square text-blue-400"></i> Wireshark</h4><p>Network protocol analyzer</p></div>
+          <div class="tool-card w-64 flex-shrink-0" data-category="security"><h4><i class="fas fa-bug text-orange-500"></i> Burp Suite</h4><p>Web vulnerability testing</p></div>
+          <div class="tool-card w-64 flex-shrink-0" data-category="tools"><h4><i class="devicon-figma-plain colored"></i> Figma</h4><p>UI/UX design & prototyping</p></div>
+          <div class="tool-card w-64 flex-shrink-0" data-category="tools"><h4><i class="fas fa-server text-gray-300"></i> Vercel</h4><p>Frontend deployment & hosting</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="language"><h4><i class="fas fa-terminal"></i> Bash</h4><p>Shell scripting & automation</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="tools"><h4><i class="devicon-vscode-plain colored"></i> VS Code</h4><p>Code editing and development environment</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="tools"><h4><i class="devicon-git-plain colored"></i> Git</h4><p>Version control & collaboration</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="tools"><h4><i class="devicon-github-original colored"></i> GitHub</h4><p>Code hosting and open source</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="language"><h4><i class="fab fa-markdown text-gray-200"></i> Markdown</h4><p>Documentation and text formatting</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="security"><h4><i class="fas fa-network-wired text-orange-400"></i> Nmap</h4><p>Network discovery & auditing</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="security"><h4><i class="fas fa-wave-square text-blue-400"></i> Wireshark</h4><p>Network protocol analyzer</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="security"><h4><i class="fas fa-bug text-orange-500"></i> Burp Suite</h4><p>Web vulnerability testing</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="tools"><h4><i class="devicon-figma-plain colored"></i> Figma</h4><p>UI/UX design & prototyping</p></div>
+          <div class="tool-card is-clone w-64 flex-shrink-0" data-category="tools"><h4><i class="fas fa-server text-gray-300"></i> Vercel</h4><p>Frontend deployment & hosting</p></div>
+        </div>
       </div>
-
-      <!-- HTML -->
-      <div class="tool-card" data-category="web">
-        <h4><i class="devicon-html5-plain colored"></i> HTML</h4>
-        <p>Semantic structure for web</p>
-      </div>
-
-      <!-- CSS -->
-      <div class="tool-card" data-category="web">
-        <h4><i class="devicon-css3-plain colored"></i> CSS</h4>
-        <p>Modern layouts and styling</p>
-      </div>
-
-      <!-- React -->
-      <div class="tool-card" data-category="web">
-        <h4><i class="devicon-react-original colored"></i> React</h4>
-        <p>Component-based UI development</p>
-      </div>
-
-      <!-- Node -->
-      <div class="tool-card" data-category="web">
-        <h4><i class="devicon-nodejs-plain colored"></i> Node.js</h4>
-        <p>Backend JavaScript runtime</p>
-      </div>
-
-      <!-- Tailwind -->
-      <div class="tool-card" data-category="web">
-        <h4><i class="devicon-tailwindcss-plain colored"></i> Tailwind</h4>
-        <p>Utility-first CSS framework</p>
-      </div>
-
-      <!-- Linux -->
-      <div class="tool-card" data-category="security">
-        <h4><i class="devicon-linux-plain colored"></i> Linux</h4>
-        <p>System usage & command line</p>
-      </div>
-
-      <!-- Kali -->
-      <div class="tool-card" data-category="security">
-        <h4><i class="fas fa-user-shield"></i> Kali Linux</h4>
-        <p>Security testing tools</p>
-      </div>
-
-      <!-- MySQL -->
-      <div class="tool-card" data-category="web">
-        <h4><i class="devicon-mysql-plain colored"></i> MySQL</h4>
-        <p>Database management</p>
-      </div>
-
-      <!-- Bash -->
-      <div class="tool-card" data-category="language">
-        <h4><i class="fas fa-terminal"></i> Bash</h4>
-        <p>Shell scripting & automation</p>
-      </div>
-
-      <!-- VS Code -->
-      <div class="tool-card" data-category="web">
-       <h4><i class="devicon-vscode-plain colored"></i> VS Code</h4>
-       <p>Code editing and development environment</p>
-     </div>
 
     </div>
 
@@ -232,61 +213,65 @@
       Projects
     </h2>
 
-    <!-- Password Strength Checker -->
-<div class="tool-card project-card reveal p-8 text-left reveal-hidden delay-100">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
 
-  <!-- Title -->
-  <h3 class="text-3xl font-bold text-orange-400 mb-4">
-    🔐 Password Strength Checker
-  </h3>
+  <!-- Password Strength Checker -->
+  <div class="tool-card relative overflow-hidden group p-8 text-center reveal-hidden delay-100 min-h-[320px] flex flex-col justify-center items-center border border-gray-800/50 cursor-pointer">
+    
+    <!-- Default Visible Content -->
+    <div class="flex flex-col items-center justify-center transition-all duration-500 group-hover:scale-95 group-hover:opacity-0 group-hover:-translate-y-4">
+      <h3 class="text-3xl font-bold text-orange-400 mb-6">
+        🔐 Password Strength Checker
+      </h3>
+      <div class="flex flex-wrap justify-center gap-3">
+        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs tracking-wider backdrop-blur-sm">HTML</span>
+        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs tracking-wider backdrop-blur-sm">CSS</span>
+        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs tracking-wider backdrop-blur-sm">JavaScript</span>
+      </div>
+    </div>
 
-  <!-- Description -->
-  <p class="text-gray-300 leading-relaxed mb-6">
-    A modern web application that evaluates password strength in real time
-    and helps users create stronger and more secure passwords.
-  </p>
-
-  <!-- Tech Stack -->
-  <div class="flex flex-wrap gap-3 mb-6">
-
-    <span class="px-3 py-1 rounded-full bg-gray-800 text-orange-300 text-sm">
-      HTML
-    </span>
-
-    <span class="px-3 py-1 rounded-full bg-gray-800 text-orange-300 text-sm">
-      CSS
-    </span>
-
-    <span class="px-3 py-1 rounded-full bg-gray-800 text-orange-300 text-sm">
-      JavaScript
-    </span>
+    <!-- Hover Reveal Overlay -->
+    <div class="absolute inset-0 bg-black/95 backdrop-blur-md flex flex-col justify-center items-center p-8 text-center opacity-0 group-hover:opacity-100 translate-y-12 group-hover:translate-y-0 transition-all duration-500 ease-out z-10 pointer-events-none group-hover:pointer-events-auto">
+      <p class="text-gray-300 leading-relaxed mb-6">
+        A modern web application that evaluates password strength in real time and helps users create stronger and more secure passwords.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://prince308-hub.github.io/Password-Strength-Checker/" target="_blank" class="px-5 py-2 rounded-lg bg-gradient-to-r from-orange-500 to-yellow-400 text-black font-semibold hover:scale-105 transition duration-300">Live Demo</a>
+        <a href="https://github.com/PRINCE308-HUB/Password-Strength-Checker" target="_blank" class="px-5 py-2 rounded-lg border border-orange-400 text-orange-400 hover:bg-orange-500 hover:text-black transition duration-300">GitHub</a>
+      </div>
+    </div>
 
   </div>
 
-  <!-- Buttons -->
-  <div class="flex gap-4">
+  <!-- File Encryption Tool -->
+  <div class="tool-card relative overflow-hidden group p-8 text-center reveal-hidden delay-200 min-h-[320px] flex flex-col justify-center items-center border border-gray-800/50 cursor-pointer">
+    
+    <!-- Default Visible Content -->
+    <div class="flex flex-col items-center justify-center transition-all duration-500 group-hover:scale-95 group-hover:opacity-0 group-hover:-translate-y-4">
+      <h3 class="text-3xl font-bold text-orange-400 mb-6">
+        🔒 File Encryption Tool
+      </h3>
+      <div class="flex flex-wrap justify-center gap-3">
+        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs tracking-wider backdrop-blur-sm">Python</span>
+        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs tracking-wider backdrop-blur-sm">HTML</span>
+        <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs tracking-wider backdrop-blur-sm">JavaScript</span>
+      </div>
+    </div>
 
-    <!-- Live Demo -->
-    <a href="https://prince308-hub.github.io/Password-Strength-Checker/"
-       target="_blank"
-       class="px-5 py-2 rounded-lg bg-gradient-to-r from-orange-500 to-yellow-400 text-black font-semibold hover:scale-105 transition duration-300">
-
-      Live Demo
-    </a>
-
-    <!-- GitHub -->
-    <a href="https://github.com/PRINCE308-HUB/Password-Strength-Checker"
-       target="_blank"
-       class="px-5 py-2 rounded-lg border border-orange-400 text-orange-400 hover:bg-orange-500 hover:text-black transition duration-300">
-
-      GitHub
-    </a>
+    <!-- Hover Reveal Overlay -->
+    <div class="absolute inset-0 bg-black/95 backdrop-blur-md flex flex-col justify-center items-center p-8 text-center opacity-0 group-hover:opacity-100 translate-y-12 group-hover:translate-y-0 transition-all duration-500 ease-out z-10 pointer-events-none group-hover:pointer-events-auto">
+      <p class="text-gray-300 leading-relaxed mb-6">
+        A robust web application designed to securely encrypt and decrypt sensitive files, ensuring your data remains private and protected.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://prince308-hub.github.io/file-encryption-tool/" target="_blank" class="px-5 py-2 rounded-lg bg-gradient-to-r from-orange-500 to-yellow-400 text-black font-semibold hover:scale-105 transition duration-300">Live Demo</a>
+        <a href="https://github.com/PRINCE308-HUB/file-encryption-tool" target="_blank" class="px-5 py-2 rounded-lg border border-orange-400 text-orange-400 hover:bg-orange-500 hover:text-black transition duration-300">GitHub</a>
+      </div>
+    </div>
 
   </div>
 
 </div>
-
-
   </div>
 </section>
 <!-- ================= CONTACT SECTION ================= -->

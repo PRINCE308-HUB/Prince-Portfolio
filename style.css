@@ -9,21 +9,12 @@
 /* ================= GLOBAL BASE & SCROLLBAR ================= */
 html, body {
   background-color: #000000;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-::-webkit-scrollbar-track {
-  background: #000000; 
-}
-::-webkit-scrollbar-thumb {
-  background: #334155; 
-  border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #fb923c; 
+  display: none; /* Chrome, Safari and Opera */
 }
 ::-webkit-scrollbar-corner {
   background: #000000; 
@@ -737,6 +728,9 @@ html {
 .reveal-hidden {
   opacity: 0;
   transform: translateY(20px);
+  transition-property: opacity, transform;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-load-hidden {

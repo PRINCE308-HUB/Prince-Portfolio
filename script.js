@@ -253,12 +253,14 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const revealElements = document.querySelectorAll('.reveal-hidden');
   if (revealElements.length > 0) {
-    const revealObserver = new IntersectionObserver((entries, observer) => {
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.remove('reveal-hidden');
           entry.target.classList.add('reveal-show');
-          observer.unobserve(entry.target); // Only animate once per load
+        } else {
+          entry.target.classList.remove('reveal-show');
+          entry.target.classList.add('reveal-hidden');
         }
       });
     }, {
@@ -284,55 +286,48 @@ window.addEventListener("load", () => {
     }, 200);
   }
 });
-/* ================= ACTIVE NAVBAR ================= */
+/* ================= SCROLL LISTENERS (THROTTLED) ================= */
 
-
-const navSections = document.querySelectorAll(
-  "#home, #about, #skills, #projects, #contact"
-);
-
+const navSections = document.querySelectorAll("#home, #about, #skills, #projects, #contact");
 const navLinks = document.querySelectorAll(".nav-link");
-
-window.addEventListener("scroll", () => {
-
-  let current = "";
-
-  navSections.forEach(section => {
-
-    const sectionTop = section.offsetTop - 150;
-    const sectionHeight = section.offsetHeight;
-
-    if (window.scrollY >= sectionTop &&
-        window.scrollY < sectionTop + sectionHeight) {
-
-      current = section.getAttribute("id");
-    }
-
-  });
-
-  navLinks.forEach(link => {
-
-    link.classList.remove("active-nav");
-
-    if (link.getAttribute("href") === `#${current}`) {
-      link.classList.add("active-nav");
-    }
-
-  });
-
-});
-/* ================= NAVBAR SCROLL EFFECT ================= */
-
 const navbar = document.getElementById("navbar");
 
+let isScrolling = false;
+
 window.addEventListener("scroll", () => {
+  if (!isScrolling) {
+    window.requestAnimationFrame(() => {
+      
+      // 1. Navbar background effect
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
 
-  if (window.scrollY > 50) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
+      // 2. Active nav link highlighter
+      let current = "";
+      navSections.forEach(section => {
+        // Only calculate offset top once inside the rAF
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.offsetHeight;
+
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active-nav");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active-nav");
+        }
+      });
+
+      isScrolling = false;
+    });
+    isScrolling = true;
   }
-
 });
 
 // ---------------- STATIC STARS & SHOOTING STARS ----------------

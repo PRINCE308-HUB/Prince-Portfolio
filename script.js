@@ -414,3 +414,10 @@ if (starsContainer && !window.matchMedia('(prefers-reduced-motion: reduce)').mat
   // Start the first star loop after a slight delay
   setTimeout(createShootingStar, 500);
 }
+
+// ---------------- FORCE TOP ON REFRESH ----------------
+// Prevent the browser from remembering the scroll position on reload
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);

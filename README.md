@@ -7,14 +7,14 @@ Welcome to the source code of my personal portfolio website! This is a modern, h
 
 **━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
 
-## 🎯 Key Features (Upgraded Version)
+## 🎯 Key Features
 
 This portfolio has been carefully engineered for a premium, buttery-smooth user experience, rivaling top-tier modern web apps:
 
 - **🌌 Volumetric Energy Nebula:** A custom HTML5 Canvas background featuring mathematically generated, intertwining string-like ribbons and shooting stars that react seamlessly to window resizing.
 - **🎬 Cinematic Page Load Sequence:** A finely tuned, staggered entrance animation sequence that cascades the navbar, hero text, and buttons into view with a 60FPS cubic-bezier easing curve.
 - **✨ Scroll-Triggered Reveals:** Sections dynamically and elegantly cascade into view as you scroll down the page, utilizing the Intersection Observer API for maximum performance.
-- **🛠️ FLIP-Animated Toolbox:** The "My Toolbox" section features an advanced JavaScript FLIP (First, Last, Invert, Play) animation, allowing you to instantly filter tools without any layout jitter or content jumping.
+- **🛠️ Infinite Auto-Scrolling Toolbox:** The "My Toolbox" section features a continuous dual-track marquee animation that pauses on hover and intelligently transforms into a static, filterable grid when categories are selected.
 - **🎨 Modern & Minimal UI:** A deep dark-themed interface accented with vibrant amber, complete with premium glassmorphism effects and sharp hover states.
 - **🧭 Smart Sticky Navbar:** A sleek, transparent navigation bar that smoothly transitions on scroll and highlights the currently active section.
 - **📱 Fully Responsive Design:** Meticulously optimized layouts that look phenomenal on 4K desktop monitors, tablets, and mobile devices alike.
@@ -54,5 +54,5 @@ This portfolio has been carefully engineered for a premium, buttery-smooth user 
 ---
 
 <p align="center">
-  <i>Designed and developed with passion by <b>Prince Johnson</b></i>
+  <i>Designed and developed with passion by <b>Prince Johnson</b></i> 😎
 </p>
